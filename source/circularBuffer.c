@@ -61,10 +61,10 @@ enum bufErrorCode delAllElements(circularBuf *inBuf)
 
 }
 
-//Print all the elements of the input buffer (DEBUGGING ONLY)
-void printFullBuffer(circularBuf *inBuf)
+//Zero all the elements of the input buffer (DEBUGGING ONLY)
+void zeroFullBuffer(circularBuf *inBuf)
 {
-	//Print all elements from index 0 to last
+	//Zero all elements from index 0 to last
 	printf("Buffer:\n");
 	for (int i = 0; i < inBuf->length; ++i)
 	{
@@ -78,7 +78,7 @@ enum bufErrorCode checkFull(circularBuf *inBuf)
 	//Check if the input buffer is valid, else return failure
 	if (inBuf == NULL)
 		return failure;
-	if (inBuf->charArray == NULL)
+	if (charArray1 == NULL)
 		return failure;
 
 	//If the count of the buffer is equal to the length, then the buffer is full
@@ -107,23 +107,35 @@ enum bufErrorCode checkEmpty(circularBuf *inBuf)
 }
 
 //Add an element to the buffer
-enum bufErrorCode addElement(circularBuf *inBuf, char inData)
+//enum bufErrorCode addElement(circularBuf *inBuf, char inData)
+//{
+//	//check if the buffer is full
+//	if (checkFull(inBuf) == bufferFull || checkFull(inBuf) == failure)
+//		return failure;
+//
+//	//Add an element to the end of the buffer
+//	inBuf->charArray[inBuf->tail] = inData;
+//	//Adjust the tail of the buffer, caring for the wrap around
+//	inBuf->tail = (inBuf->tail + 1) % inBuf->length;
+//	//Adjust the number of elements in the buffer
+//	inBuf->count = inBuf->count + 1;
+//	//for debugging
+////	printf("Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
+//
+//	//status of the operation
+//	return success;
+//}
+enum bufErrorCode addElement(circularBuf *inBuf, int inData)
 {
-	//check if the buffer is full
-	if (checkFull(inBuf) == bufferFull || checkFull(inBuf) == failure)
-		return failure;
+    if (checkFull(inBuf) == bufferFull)
+        return failure;
 
-	//Add an element to the end of the buffer
-	inBuf->charArray[inBuf->tail] = inData;
-	//Adjust the tail of the buffer, caring for the wrap around
-	inBuf->tail = (inBuf->tail + 1) % inBuf->length;
-	//Adjust the number of elements in the buffer
-	inBuf->count++;
-	//for debugging
-	printf("Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
+    charArray1[inBuf->tail] = inData;
+    inBuf->tail = (inBuf->tail + 1) % inBuf->length;
+    inBuf->count++;
+    printf("Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
 
-	//status of the operation
-	return success;
+    return success;
 }
 
 //delete an element in the buffer
@@ -219,33 +231,33 @@ enum bufErrorCode verifyBufPointer(circularBuf *inBuf)
 }
 
 //Initialize and allocate a buffer
-circularBuf* initBuffer(size_t inLength)
+enum bufErrorCode initBuffer(circularBuf *inBuf, size_t inLength)
 {
 	//Allocate metadata of a buffer metadata
-	circularBuf *cirBuf = malloc(sizeof(circularBuf));
+	txBuf = malloc(sizeof(circularBuf));
 	//Check if the allocation failed
-	if (cirBuf == NULL)
-		return NULL;
+	if (txBuf == NULL)
+		return failure;
 	//Set the buffer pointer to NULL
-	cirBuf->charArray = NULL;
+	txBuf->charArray = NULL;
 
 	//Set the length of the buffer
-	cirBuf->length = inLength;
+	txBuf->length = inLength;
 	//Set zero elements filled
-	cirBuf->count = 0;
+	txBuf->count = 0;
 	//Allocate space for circular buffer
-	cirBuf->charArray = malloc(sizeof(cirBuf->length * sizeof(char)));
+	txBuf->charArray = malloc(sizeof(txBuf->length * sizeof(char)));
 	//If the allocation failed, free the metadata and set the pointers to NULL
-	if (cirBuf->charArray == NULL) {
-		free(cirBuf);
-		cirBuf = NULL;
-		return NULL;
+	if (txBuf->charArray == NULL) {
+		free(txBuf);
+		txBuf = NULL;
+		return failure;
 	}
 
 	//Set the head and tail to initial values
-	cirBuf->head = 0;
-	cirBuf->tail = 0;
+	txBuf->head = 0;
+	txBuf->tail = 0;
 
 	//return the pointer if the allocation was successful
-	return cirBuf;
+	return success;
 }

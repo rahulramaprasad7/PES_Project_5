@@ -23,6 +23,7 @@ void UART0_Transmit_Poll(uint8_t data);
 
 uint8_t UART0_Receive_Poll(void);
 
-#define interruptEnable 1
+//#define interruptEnable 1
+#define pollingEnable
 
 #endif /* UARTINCLUDES_H_ */

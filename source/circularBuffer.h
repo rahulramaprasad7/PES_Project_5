@@ -24,19 +24,25 @@
 #define END_CRITICAL() __enable_irq()
 
 //Enumeration defining all error codes that the circular buffer functions can return
-enum bufErrorCode {bufferFull, bufferNotFull, bufferEmpty, bufferNotEmpty, success, failure};
+enum bufErrorCode {bufferFull = 1, bufferNotFull, bufferEmpty, bufferNotEmpty, success, failure};
 
 //The structure containing the circular buffer and the metadata
 typedef struct circularBuf {
-    char *charArray;	//The buffer
-    size_t head;		//The head, points to the oldest element in the buffer
-    size_t tail;		//The tail, points to the latest element in the buffer
-    size_t length;		//The total length of the buffer
-    size_t count;		//The number of elements currently in the buffer
+	uint8_t *charArray;	//The buffer
+	uint8_t head;		//The head, points to the oldest element in the buffer
+	uint8_t tail;		//The tail, points to the latest element in the buffer
+	uint8_t length;		//The total length of the buffer
+	uint8_t count;		//The number of elements currently in the buffer
 } circularBuf;
 
 //A temperory buffer for testing
 extern uint8_t inBuffer[20];
+
+//transmit queue circular buffer
+extern circularBuf *txBuf;
+//receive queue circular buffer
+extern circularBuf *rxBuf;
+extern uint8_t *charArray1;
 
 /*
  * @brief check if the buffer is full
@@ -67,7 +73,7 @@ enum bufErrorCode checkEmpty(circularBuf *inBuf);
  * @param The data to be added
  * @return The result of the addition attempt (success/failure)
  */
-enum bufErrorCode addElement(circularBuf *inBuf, char inData);
+enum bufErrorCode addElement(circularBuf *inBuf, int inData);
 
 
 /*
@@ -103,7 +109,7 @@ enum bufErrorCode emptyBuffer(circularBuf *inBuf);
  * @param The length of the buffer to be allocated
  * @return The pointer to the allocated buffer, NULL if allocation failed
  */
-circularBuf* initBuffer(size_t inLength);
+enum bufErrorCode initBuffer(circularBuf *inBuf, size_t inLength);
 
 /*
  * @brief Delete a circular buffer and its metadata
@@ -137,15 +143,15 @@ enum bufErrorCode verifyBuffer(circularBuf *inBuf);
 enum bufErrorCode verifyBufPointer(circularBuf *inBuf);
 
 /*
- * @brief Prints all the elements in a buffer (DEBUGGING ONLY)
+ * @brief Zeros all the elements in a buffer (DEBUGGING ONLY)
  *
- * This function prints all the elements of the buffer from zero
+ * This function Zeros all the elements of the buffer from zero
  * to last index
  *
- * @param The pointer to the circular buffer metadata to be checked
+ * @param The pointer to the circular buffer metadata to be zeroed
  * @return void
  */
-void printFullBuffer(circularBuf *inBuf);
+void zeroFullBuffer(circularBuf *inBuf);
 
 /*
  * @brief Delete all the elements in a buffer

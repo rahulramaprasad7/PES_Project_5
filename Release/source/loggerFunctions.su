@@ -1,0 +1,8 @@
+loggerFunctions.c:19:6:log_enable	0	static
+loggerFunctions.c:25:6:log_disable	0	static
+loggerFunctions.c:31:6:log_status	0	static
+loggerFunctions.c:53:6:log_message	0	static
+loggerFunctions.c:86:6:log_message_int	0	static
+loggerFunctions.c:115:6:log_string	8	static
+loggerFunctions.c:122:6:log_integer	8	static
+loggerFunctions.c:38:6:log_data	16	static
