@@ -1,0 +1,12 @@
+circularBuffer.c:14:19:adjustElements	24	static
+circularBuffer.c:35:19:delAllElements	32	static
+circularBuffer.c:50:6:printFullBuffer	24	static
+circularBuffer.c:59:19:checkFull	16	static
+circularBuffer.c:70:19:checkEmpty	16	static
+circularBuffer.c:79:19:addElement	16	static
+circularBuffer.c:92:9:delElement	32	static
+circularBuffer.c:107:19:emptyBuffer	16	static
+circularBuffer.c:119:19:destroyBuffer	16	static
+circularBuffer.c:139:19:verifyBuffer	16	static
+circularBuffer.c:150:19:verifyBufPointer	16	static
+circularBuffer.c:158:14:initBuffer	24	static
