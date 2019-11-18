@@ -1,0 +1,2 @@
+eclipse.preferences.version=1
+macros/workspace=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<macros>\n<stringMacro name\="SDK_LPC_RESOURCES" type\="VALUE_PATH_DIR" value\="/usr/local/mcuxpressoide-11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.core.datamodels.resources_11.0.1.201907311258/override"/>\n</macros>\n

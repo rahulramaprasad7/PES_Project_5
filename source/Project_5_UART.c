@@ -13,15 +13,16 @@ int main(void)
 	BOARD_InitBootPins();
 	BOARD_InitBootClocks();
 	BOARD_InitBootPeripherals();
-	/* Init FSL debug console. */
+//	/* Init FSL debug console. */
 //	BOARD_InitDebugConsole();
 
 	uartInit();
+	//hello
 
 	while (1)
 	{
 		c = UART0_Receive_Poll();
-		UART0_Transmit_Poll(c+1);
+		UART0_Transmit_Poll(c);
 	}
 }
 

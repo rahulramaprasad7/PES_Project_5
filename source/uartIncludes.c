@@ -12,12 +12,23 @@ void uartInit()
 	SIM->SCGC4 |= SIM_SCGC4_UART0_MASK;					//Enable the bus clock to UART peripheral
 	SIM->SCGC5 |= SIM_SCGC5_PORTA_MASK;					//Enabling clock for Port A
 
+	SIM->SOPT2 |= SIM_SOPT2_UART0SRC(1);				// Set UART clock to 48 MHz clock
+	SIM->SOPT2 |= SIM_SOPT2_PLLFLLSEL_MASK;
+
+	UART0->C2 &= ~UART0_C2_TE_MASK & ~UART0_C2_RE_MASK; //Disabling transmitter and receiver
+
 	PORTA->PCR[1] = PORT_PCR_ISF_MASK | PORT_PCR_MUX(2); // Rx
 	PORTA->PCR[2] = PORT_PCR_ISF_MASK | PORT_PCR_MUX(2); // Tx
 
+	/* Baud rate calculation
+	 * Fclk = 48 MHz
+	 * BaudRate = Fclk/( (OSR +1) * SBR)
+	 * SBR = Fclk/((OSR +1) * BaudRate
+	 */
+	UART0->C4 |= UART0_C4_OSR(15);						//Oversampling ratio = 16, default
 	UART0->BDH &= ~UART0_BDH_SBNS_MASK; 				//Choosing one stop bit
-	UART0->BDH |= 0x00;									//SBR = 3 for 57600 baud rate
-	UART0->BDL |= 0x03;									//Oversampling ratio = 16, default
+	UART0->BDH &= ~UART0_BDH_SBR_MASK;					//SBR[12:8] =0
+	UART0->BDL |= 0x34;									//SBR[7:0] = 52 for 57600 baud rate
 
 #ifdef interruptEnable
 	NVIC_SetPriority(UART0_IRQn, 2);

@@ -6,7 +6,7 @@
  * Generated linker script file for MKL25Z128xxx4
  * Created from library.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.23
- * MCUXpresso IDE v11.0.1 [Build 2563] [2019-09-01] on Nov 17, 2019 5:26:28 PM
+ * MCUXpresso IDE v11.0.1 [Build 2563] [2019-09-01] on Nov 17, 2019 6:37:28 PM
  */
 
 GROUP (
