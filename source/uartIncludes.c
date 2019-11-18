@@ -30,7 +30,7 @@ void uartInit()
 	UART0->BDH &= ~UART0_BDH_SBR_MASK;					//SBR[12:8] =0
 	UART0->BDL |= 0x34;									//SBR[7:0] = 52 for 57600 baud rate
 
-#ifdef interruptEnable
+#if interruptEnable == 1
 	NVIC_SetPriority(UART0_IRQn, 2);
 	NVIC_ClearPendingIRQ(UART0_IRQn);
 	NVIC_EnableIRQ(UART0_IRQn);
@@ -38,6 +38,7 @@ void uartInit()
 #endif
 
 	UART0->C2 |= UART0_C2_TE_MASK | UART0_C2_RE_MASK; 	//Enabling transmitter and receiver
+	UART0->S1 &= ~UART0_S1_RDRF_MASK;
 }
 
 void UART0_Transmit_Poll(uint8_t data)

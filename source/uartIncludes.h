@@ -15,11 +15,14 @@
 #include "clock_config.h"
 #include "MKL25Z4.h"
 #include "fsl_debug_console.h"
+#include <stdbool.h>
 
 void uartInit();
 
 void UART0_Transmit_Poll(uint8_t data);
 
 uint8_t UART0_Receive_Poll(void);
+
+#define interruptEnable 1
 
 #endif /* UARTINCLUDES_H_ */
