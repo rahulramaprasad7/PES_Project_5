@@ -28,25 +28,25 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: Project_5_UART.axf
+all: PES_Project_5.axf
 
 # Tool invocations
-Project_5_UART.axf: $(OBJS) $(USER_OBJS)
+PES_Project_5.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -Xlinker -Map="Project_5_UART.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m0plus -mthumb -T Project_5_UART_Debug.ld -o "Project_5_UART.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -Xlinker -Map="PES_Project_5.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m0plus -mthumb -T PES_Project_5_Debug.ld -o "PES_Project_5.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) Project_5_UART.axf
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) PES_Project_5.axf
 	-@echo ' '
 
 post-build:
 	-@echo 'Performing post-build steps'
-	-arm-none-eabi-size "Project_5_UART.axf"; # arm-none-eabi-objcopy -v -O binary "Project_5_UART.axf" "Project_5_UART.bin" ; # checksum -p MKL25Z128xxx4 -d "Project_5_UART.bin";
+	-arm-none-eabi-size "PES_Project_5.axf"; # arm-none-eabi-objcopy -v -O binary "PES_Project_5.axf" "PES_Project_5.bin" ; # checksum -p MKL25Z128xxx4 -d "PES_Project_5.bin";
 	-@echo ' '
 
 .PHONY: all clean dependents post-build
