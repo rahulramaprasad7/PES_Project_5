@@ -5,7 +5,6 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../source/Project_5_UART.c \
-../source/cbtestprev.c \
 ../source/circularBuffer.c \
 ../source/ledControl.c \
 ../source/loggerFunctions.c \
@@ -15,7 +14,6 @@ C_SRCS += \
 
 OBJS += \
 ./source/Project_5_UART.o \
-./source/cbtestprev.o \
 ./source/circularBuffer.o \
 ./source/ledControl.o \
 ./source/loggerFunctions.o \
@@ -25,7 +23,6 @@ OBJS += \
 
 C_DEPS += \
 ./source/Project_5_UART.d \
-./source/cbtestprev.d \
 ./source/circularBuffer.d \
 ./source/ledControl.d \
 ./source/loggerFunctions.d \

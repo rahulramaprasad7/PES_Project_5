@@ -117,4 +117,7 @@ void log_message(enum loggerMode logLevel, const char *functionName, char *messa
  */
 void log_message_int(enum loggerMode logLevel, const char *functionName, char* message, int number);
 
+void sendString(char* in);
+void sendChara(char in);
+
 #endif /* LOGGERFUNCTIONS_H_ */

@@ -20,10 +20,15 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include "ledControl.h"
+#include "loggerFunctions.h"
 #include "MKL25Z4.h"
 
 #define START_CRITICAL __disable_irq()
 #define END_CRITICAL __enable_irq()
+
+#define tenthSec 286102UL
+
 
 //Enumeration defining all error codes that the circular buffer functions can return
 enum bufErrorCode {bufferFull = 1, bufferNotFull, bufferEmpty, bufferNotEmpty, success, failure};
@@ -45,6 +50,7 @@ extern circularBuf *txBuf;
 //receive queue circular buffer
 extern circularBuf *rxBuf;
 extern uint8_t *charArray1;
+extern unsigned long tenth;
 
 /*
  * @brief check if the buffer is full
@@ -181,5 +187,7 @@ enum bufErrorCode initTxBuf(uint32_t inLength);
 void printReport(void);
 
 void application(void);
+
+void Init_SysTick(void);
 
 #endif

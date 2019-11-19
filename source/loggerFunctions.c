@@ -11,9 +11,13 @@
  */
 
 #include "loggerFunctions.h"
+#include "circularBuffer.h"
+#include "uartIncludes.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <stdbool.h>
+
+bool loggerEnable = true;
 
 
 void log_enable(void)
@@ -54,18 +58,42 @@ void log_message(enum loggerMode logLevel, const char *functionName, char *messa
 {
 	if(loggerEnable){
 		//log if debug build config is selected
+
+		unsigned long hour = tenth/36000UL;
+		unsigned long min = tenth/600UL;
+		unsigned long sec = tenth/10UL;
+
+		if(sec >= 60)
+			sec -= 60;
+		if(min >= 60)
+			min -= 60;
+		if(hour >= 24)
+			hour -= 24;
+
+
+
 #ifdef debug
 		if(logLevel == DEBUG)
 		{
-			printf("DEBUG: ");
-			printf("%s: %s\n", functionName, message);
+			char buf1[100];
+			char buf2[100];
+
+			sprintf(buf1, "\nDEBUG: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+			sprintf(buf2, "%s: %s\n", functionName, message);
+
+			sendString(buf1);
+			sendString(buf2);
+			sendChara('\n');
+
+			//			printf("DEBUG: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+			//			printf("%s: %s\n", functionName, message);
 		}
 #endif
 
 #ifdef test
 		//log if test build config is selected
 		if (logLevel == TEST){
-			printf("TEST: ");
+			printf("TEST: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
 			printf("%s: %s\n", functionName, message);
 		}
 #endif
@@ -74,7 +102,7 @@ void log_message(enum loggerMode logLevel, const char *functionName, char *messa
 		//log if normal build config is selected
 		if (logLevel == NORMAL)
 		{
-			printf("NORMAL: ");
+			printf("NORMAL: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
 			printf("%s: %s\n", functionName, message);
 		}
 #endif
@@ -86,10 +114,14 @@ void log_message(enum loggerMode logLevel, const char *functionName, char *messa
 void log_message_int(enum loggerMode logLevel, const char *functionName, char* message, int number)
 {
 	if(loggerEnable){
+		unsigned long hour = tenth/36000UL;
+		unsigned long min = tenth/600UL;
+		unsigned long sec = tenth/10UL;
+
 #ifdef debug
 		//log if debug build config is selected
 		if(logLevel == DEBUG){
-			printf("DEBUG: ");
+			printf("DEBUG: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
 			printf("%s: %s %d\n", functionName, message, number);
 		}
 #endif
@@ -97,7 +129,7 @@ void log_message_int(enum loggerMode logLevel, const char *functionName, char* m
 #ifdef test
 		//log if test build config is selected
 		if (logLevel == TEST){
-			printf("TEST: ");
+			printf("TEST: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
 			printf("%s: %d\n", functionName, message);
 		}
 #endif
@@ -105,7 +137,7 @@ void log_message_int(enum loggerMode logLevel, const char *functionName, char* m
 #ifdef normal
 		//log if normal build config is selected
 		if (logLevel == NORMAL){
-			printf("NORMAL: ");
+			printf("NORMAL: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
 			printf("%s: %s %d\n", functionName, message, number);
 		}
 #endif

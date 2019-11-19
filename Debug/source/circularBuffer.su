@@ -1,3 +1,4 @@
+core_cm0plus.h:804:22:NVIC_SetPriority	24	static
 circularBuffer.c:19:19:adjustElements	24	static
 circularBuffer.c:51:19:delAllElements	32	static
 circularBuffer.c:70:6:zeroFullBuffer	24	static
@@ -10,3 +11,5 @@ circularBuffer.c:191:19:destroyBuffer	16	static
 circularBuffer.c:217:19:verifyBuffer	16	static
 circularBuffer.c:232:19:verifyBufPointer	16	static
 circularBuffer.c:246:19:initBuffer	16	static
+circularBuffer.c:277:6:Init_SysTick	8	static
+circularBuffer.c:291:6:SysTick_Handler	8	static

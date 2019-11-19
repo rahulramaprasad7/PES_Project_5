@@ -16,6 +16,7 @@ circularBuf *txBuf;
 circularBuf *rxBuf;
 
 
+
 void sendChara(char in)
 {
 	//Send 1 char
@@ -85,10 +86,18 @@ int main(void)
 	BOARD_InitBootPins();
 	BOARD_InitBootClocks();
 	BOARD_InitBootPeripherals();
+
+	//Initialize the RGB LEDs
+	uartInit();
+	Init_RGB_LEDs();
+	ledOff();
+
+	//Initialize the systick timer to tick in 15 seconds
+	Init_SysTick();
+
 	//	/* Init FSL debug console. */
 	//	BOARD_InitDebugConsole();
 
-	uartInit();
 
 	initTxBuf(8);
 	initRxBuf(128);
@@ -182,6 +191,7 @@ void application(void)
 			printReport();
 			reportPrint = false;
 		}
+		log_message(DEBUG, __func__, "Printing buffer report");
 		return;
 	}
 
@@ -303,3 +313,4 @@ void UART0_IRQHandler(void)
 	}
 	UART0->C2 &= ~UART0_C2_TIE(1);
 }
+

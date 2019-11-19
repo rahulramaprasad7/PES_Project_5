@@ -22,6 +22,7 @@
 #include <stdbool.h>
 #include "circularBuffer.h"
 
+
 /*
  * @brief Initialises the UART0 registers
  *
@@ -99,6 +100,6 @@ uint8_t receivePoll();
  */
 void echoPoll();
 
-#define interruptEnable 1
-#define applicationMode 0
+#define interruptEnable 0
+#define applicationMode 1
 #endif /* UARTINCLUDES_H_ */

@@ -273,3 +273,22 @@ enum bufErrorCode initBuffer(circularBuf *inBuf, size_t inLength)
 	//return the pointer if the allocation was successful
 	return success;
 }
+
+void Init_SysTick(void)
+{
+	//Load value eq to 15 sec
+	SysTick->LOAD = tenthSec;
+	//Set the systick timer priority
+	NVIC_SetPriority(SysTick_IRQn, 3);
+	//set the value register to 0
+	SysTick->VAL = 0;
+	//Enable and start the timer
+	SysTick->CTRL = SysTick_CTRL_TICKINT_Msk | SysTick_CTRL_ENABLE_Msk;
+}
+
+unsigned long tenth = 0;
+
+void SysTick_Handler(void)
+{
+	tenth++;
+}
