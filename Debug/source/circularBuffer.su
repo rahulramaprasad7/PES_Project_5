@@ -9,4 +9,4 @@ circularBuffer.c:162:19:emptyBuffer	16	static
 circularBuffer.c:179:19:destroyBuffer	16	static
 circularBuffer.c:205:19:verifyBuffer	16	static
 circularBuffer.c:220:19:verifyBufPointer	16	static
-circularBuffer.c:234:19:initBuffer	24	static
+circularBuffer.c:234:19:initBuffer	16	static

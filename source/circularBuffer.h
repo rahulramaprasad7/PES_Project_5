@@ -29,10 +29,10 @@ enum bufErrorCode {bufferFull = 1, bufferNotFull, bufferEmpty, bufferNotEmpty, s
 //The structure containing the circular buffer and the metadata
 typedef struct circularBuf {
 	uint8_t *charArray;	//The buffer
-	uint8_t head;		//The head, points to the oldest element in the buffer
-	uint8_t tail;		//The tail, points to the latest element in the buffer
-	uint8_t length;		//The total length of the buffer
-	uint8_t count;		//The number of elements currently in the buffer
+	uint32_t head;		//The head, points to the oldest element in the buffer
+	uint32_t tail;		//The tail, points to the latest element in the buffer
+	uint32_t length;		//The total length of the buffer
+	uint32_t count;		//The number of elements currently in the buffer
 } circularBuf;
 
 //A temperory buffer for testing
@@ -173,5 +173,7 @@ enum bufErrorCode delAllElements(circularBuf *inBuf);
  * @return The result of the adjustment (success/failure)
  */
 enum bufErrorCode adjustElements(circularBuf *inBuf);
+
+enum bufErrorCode initTxBuf(uint32_t inLength);
 
 #endif

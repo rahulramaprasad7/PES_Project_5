@@ -8,7 +8,7 @@
 
 bool inputReady = false;
 
-//circularBuf *txBuf;
+circularBuf *txBuf;
 circularBuf *rxBuf;
 
 
@@ -32,6 +32,26 @@ void sendString(char* in)
 }
 uint8_t *charArray1;
 
+enum bufErrorCode initTxBuf(uint32_t inLength)
+{
+	txBuf = (circularBuf *)malloc(sizeof(circularBuf));
+
+	if (txBuf == NULL)
+		return failure;
+	txBuf->charArray = (uint8_t *)malloc(inLength);
+	if (txBuf->charArray == NULL) {
+		free(txBuf);
+		txBuf = NULL;
+		return failure;
+	}
+	txBuf->length = inLength;
+	txBuf->count = 0;
+
+	txBuf->head = 0;
+	txBuf->tail = 0;
+	return success;
+}
+
 int main(void)
 {
 	//	uint8_t c;
@@ -44,47 +64,20 @@ int main(void)
 	//	BOARD_InitDebugConsole();
 
 	uartInit();
-	//hello
 
-	//	if((initBuffer(txBuf, 32)) == failure)
-	//		return 1;
-	//	if((initBuffer(rxBuf, 32)) == failure)
-	//		return 1;
-
-	circularBuf *txBuf = (circularBuf *)malloc(sizeof(circularBuf));
-
-	if (txBuf == NULL)
-		return 1;
-	txBuf->charArray = NULL;
-
-	txBuf->length = 32;
-	txBuf->count = 0;
-	charArray1 = (uint8_t *)malloc(32);
-	if (charArray1 == NULL) {
-		free(txBuf);
-		txBuf = NULL;
-		return 1;
-	}
-
-	txBuf->head = 0;
-	txBuf->tail = 0;
-
-//	printf("%p %lu %lu %lu %lu\n", charArray1[1], txBuf->head, txBuf->tail, txBuf->length, txBuf->count);
-
-
+	initTxBuf(16);
 	int il = 0;
 	while (addElement(txBuf, il) != failure) {
 		printf("Added %d\n", il);
-		printf("Chararray: %d\n", charArray1[il]);
+		printf("Chararray: %d\n", txBuf->charArray[il]);
 		il++;
 	}
 	printf("DONE\n");
-//	i = 0;
 
 	for(int i = 0; i < txBuf->length; i++){
-		printf("Buffer: %d\n", charArray1[i]);
+		printf("Buffer: %d\n", txBuf->charArray[i]);
 		char tempHolder[15];
-		sprintf(tempHolder, "Buffer: %c\n", charArray1[i]);
+		sprintf(tempHolder, "Buffer: %c\n", txBuf->charArray[i]);
 		sendString(tempHolder);
 	}
 

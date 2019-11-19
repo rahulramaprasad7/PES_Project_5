@@ -78,7 +78,7 @@ enum bufErrorCode checkFull(circularBuf *inBuf)
 	//Check if the input buffer is valid, else return failure
 	if (inBuf == NULL)
 		return failure;
-	if (charArray1 == NULL)
+	if (inBuf->charArray == NULL)
 		return failure;
 
 	//If the count of the buffer is equal to the length, then the buffer is full
@@ -130,7 +130,7 @@ enum bufErrorCode addElement(circularBuf *inBuf, int inData)
     if (checkFull(inBuf) == bufferFull)
         return failure;
 
-    charArray1[inBuf->tail] = inData;
+    inBuf->charArray[inBuf->tail] = inData;
     inBuf->tail = (inBuf->tail + 1) % inBuf->length;
     inBuf->count++;
     printf("Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
@@ -234,29 +234,29 @@ enum bufErrorCode verifyBufPointer(circularBuf *inBuf)
 enum bufErrorCode initBuffer(circularBuf *inBuf, size_t inLength)
 {
 	//Allocate metadata of a buffer metadata
-	txBuf = malloc(sizeof(circularBuf));
+	inBuf = malloc(sizeof(circularBuf));
 	//Check if the allocation failed
-	if (txBuf == NULL)
+	if (inBuf == NULL)
 		return failure;
 	//Set the buffer pointer to NULL
-	txBuf->charArray = NULL;
+	inBuf->charArray = NULL;
 
 	//Set the length of the buffer
-	txBuf->length = inLength;
+	inBuf->length = inLength;
 	//Set zero elements filled
-	txBuf->count = 0;
+	inBuf->count = 0;
 	//Allocate space for circular buffer
-	txBuf->charArray = malloc(sizeof(txBuf->length * sizeof(char)));
+	inBuf->charArray = malloc(sizeof(inBuf->length * sizeof(char)));
 	//If the allocation failed, free the metadata and set the pointers to NULL
-	if (txBuf->charArray == NULL) {
-		free(txBuf);
-		txBuf = NULL;
-		return failure;
-	}
+//	if (inBuf->charArray == NULL) {
+//		free(inBuf);
+//		txBuf = NULL;
+//		return failure;
+//	}
 
 	//Set the head and tail to initial values
-	txBuf->head = 0;
-	txBuf->tail = 0;
+	inBuf->head = 0;
+	inBuf->tail = 0;
 
 	//return the pointer if the allocation was successful
 	return success;
