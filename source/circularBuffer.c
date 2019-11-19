@@ -18,6 +18,9 @@ uint8_t inBuffer[20];
 //move the elements of the circular buffer during reallocation
 enum bufErrorCode adjustElements(circularBuf *inBuf)
 {
+	for(uint8_t m = 0; m < txBuf->length; m++)
+		printf("ALL: %d: %c\n", m, txBuf->charArray[m]);
+
 	//Check if the input buffer is valid, else return failure
 	if(inBuf == NULL)
 		return success;
@@ -25,11 +28,11 @@ enum bufErrorCode adjustElements(circularBuf *inBuf)
 		return success;
 
 	//A temperory variable holding the old size of the buffer
-	size_t l = (inBuf->length / 2);
+	uint32_t l = (inBuf->length / 2);
 
 	//inform the user if the buffer has wrapped
 	printf("Buffer Wrapped, moving elements\n");
-	for (size_t i = 0; i < l - inBuf->head; ++i)
+	for (uint32_t i = 0; i < l - inBuf->head; ++i)
 	{
 		//move the elements of the buffer to the leftmost side, one by one
 		inBuf->charArray[inBuf->head + l + i] = inBuf->charArray[inBuf->head + i];
@@ -39,6 +42,8 @@ enum bufErrorCode adjustElements(circularBuf *inBuf)
 	//Adjust the head of the buffer to the new location
 	inBuf->head = inBuf->head + l;
 	//For error handling
+	for(uint8_t l = 0; l < txBuf->length; l++)
+		printf("ALL: %d: %c\n", l, txBuf->charArray[l]);
 	return success;
 }
 
@@ -54,7 +59,7 @@ enum bufErrorCode delAllElements(circularBuf *inBuf)
 	//Print and empty all elements of the input buffer
 	uint8_t c;
 	while ((c = delElement(inBuf)) != 0xFE) {
-		printf("Delete: %d\n", c);
+		printf("Delete: %c\n", c);
 	}
 	//Error handling
 	return success;
@@ -125,17 +130,17 @@ enum bufErrorCode checkEmpty(circularBuf *inBuf)
 //	//status of the operation
 //	return success;
 //}
-enum bufErrorCode addElement(circularBuf *inBuf, int inData)
+enum bufErrorCode addElement(circularBuf *inBuf, uint8_t inData)
 {
-    if (checkFull(inBuf) == bufferFull)
-        return failure;
+	if (checkFull(inBuf) == bufferFull)
+		return failure;
 
-    inBuf->charArray[inBuf->tail] = inData;
-    inBuf->tail = (inBuf->tail + 1) % inBuf->length;
-    inBuf->count++;
-    printf("Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
+	inBuf->charArray[inBuf->tail] = inData;
+	inBuf->tail = (inBuf->tail + 1) % inBuf->length;
+	inBuf->count++;
+	printf("Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
 
-    return success;
+	return success;
 }
 
 //delete an element in the buffer
@@ -248,11 +253,11 @@ enum bufErrorCode initBuffer(circularBuf *inBuf, size_t inLength)
 	//Allocate space for circular buffer
 	inBuf->charArray = malloc(sizeof(inBuf->length * sizeof(char)));
 	//If the allocation failed, free the metadata and set the pointers to NULL
-//	if (inBuf->charArray == NULL) {
-//		free(inBuf);
-//		txBuf = NULL;
-//		return failure;
-//	}
+	//	if (inBuf->charArray == NULL) {
+	//		free(inBuf);
+	//		txBuf = NULL;
+	//		return failure;
+	//	}
 
 	//Set the head and tail to initial values
 	inBuf->head = 0;

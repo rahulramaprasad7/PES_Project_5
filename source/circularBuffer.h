@@ -73,7 +73,7 @@ enum bufErrorCode checkEmpty(circularBuf *inBuf);
  * @param The data to be added
  * @return The result of the addition attempt (success/failure)
  */
-enum bufErrorCode addElement(circularBuf *inBuf, int inData);
+enum bufErrorCode addElement(circularBuf *inBuf, uint8_t inData);
 
 
 /*

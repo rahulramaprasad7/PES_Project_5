@@ -1,4 +1,4 @@
-/**
+/*
  * @file    Project_5_UART.c
  * @brief   Application entry point.
  */
@@ -65,14 +65,15 @@ int main(void)
 
 	uartInit();
 
-	initTxBuf(16);
+	initTxBuf(8);
+
 	int il = 0;
-	while (addElement(txBuf, il) != failure) {
-		printf("Added %d\n", il);
-		printf("Chararray: %d\n", txBuf->charArray[il]);
-		il++;
-	}
-	printf("DONE\n");
+	//	while (addElement(txBuf, il) != failure) {
+	//		printf("Added %d\n", il);
+	//		printf("Chararray: %d\n", txBuf->charArray[il]);
+	//		il++;
+	//	}
+	//	printf("DONE\n");
 
 	for(int i = 0; i < txBuf->length; i++){
 		printf("Buffer: %d\n", txBuf->charArray[i]);
@@ -81,11 +82,12 @@ int main(void)
 		sendString(tempHolder);
 	}
 
+	zeroFullBuffer(txBuf);
 	while (1)
 	{
 #ifdef pollingEnable
-		char c = UART0_Receive_Poll();
-		UART0_Transmit_Poll(c);
+		uint8_t c = (uint8_t)UART0_Receive_Poll();
+		UART0_Transmit_Poll((char)c);
 #endif
 
 #if interruptEnable == 1
@@ -94,6 +96,47 @@ int main(void)
 			UART0->C2 |= UART0_C2_TIE(1);
 		}
 #endif
+
+
+		uint8_t temp;
+		//		scanf("%c", &temp);
+
+
+		if (c == '.') {
+			printf(". detected, dumping all elements\n");
+			for(uint8_t i = 0; i < txBuf->length; i++)
+				printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
+			delAllElements(txBuf);
+			continue;
+		}
+
+		if (addElement(txBuf, c) == failure) {
+
+			printf("Buffer Full, realloc to %lu\n", txBuf->length * 2);
+			txBuf->length *= 2;
+			uint8_t *bufTemp = txBuf->charArray;
+
+			txBuf->charArray = realloc(txBuf->charArray, 16);
+
+			if (txBuf->charArray == NULL) {
+				printf("Realloc failed\nDumping all elements");
+				txBuf->charArray = bufTemp;
+
+				delAllElements(txBuf);
+			}
+
+			if (txBuf->tail == txBuf->head) {
+				printf("Buffer Wrapped, moving elements\n");
+				adjustElements(txBuf);
+			}
+
+			if (addElement(txBuf, c) == failure)
+				return 1;
+		}
+
+		for(uint8_t i = 0; i < txBuf->length; i++)
+			printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
+
 	}
 
 }
