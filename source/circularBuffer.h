@@ -180,6 +180,6 @@ enum bufErrorCode initTxBuf(uint32_t inLength);
 
 void printReport(void);
 
-void applicationMode(void);
+void application(void);
 
 #endif

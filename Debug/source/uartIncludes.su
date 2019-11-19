@@ -1,3 +1,8 @@
-uartIncludes.c:10:6:uartInit	8	static
-uartIncludes.c:44:6:UART0_Transmit_Poll	16	static
-uartIncludes.c:51:9:UART0_Receive_Poll	8	static
+uartIncludes.c:13:6:uartInit	8	static
+uartIncludes.c:48:19:transmitReady	8	static
+uartIncludes.c:64:6:UART0_Transmit_Poll	16	static
+uartIncludes.c:69:6:transmitPoll	16	static
+uartIncludes.c:82:19:receiveReady	8	static
+uartIncludes.c:99:9:UART0_Receive_Poll	8	static
+uartIncludes.c:104:9:receivePoll	8	static
+uartIncludes.c:118:6:echoPoll	8	static

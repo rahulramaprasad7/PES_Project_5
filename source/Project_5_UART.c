@@ -19,7 +19,8 @@ void sendChara(char in)
 {
 	//Send 1 char
 	//	while(!(EUSCI_A0->IFG & EUSCI_A_IFG_TXIFG));
-	UART0_Transmit_Poll((uint8_t) in);
+//	UART0_Transmit_Poll((uint8_t) in);
+	transmitPoll((uint8_t)in);
 	//	UART0->D = (uint8_t)in;
 }
 
@@ -85,27 +86,33 @@ int main(void)
 	}
 
 	zeroFullBuffer(txBuf);
+
+
 	while (1)
 	{
-#ifdef pollingEnable
-		c = (uint8_t)UART0_Receive_Poll();
-		//		UART0_Transmit_Poll((char)c);
+#if applicationMode == 0
+#if interruptEnable == 0
+		echoPoll();
+#endif
+#endif
+#if applicationMode == 1
+#if interruptEnable == 0
+		c = (uint8_t)receivePoll();
+		application();
 #endif
 
 #if interruptEnable == 1
-		if (!(UART0->C2 & UART0_C2_TIE_MASK))
+		if (inputReady == true)
 		{
-			UART0->C2 |= UART0_C2_TIE(1);
+			inputReady = false;
+			application();
 		}
 #endif
-
-
-		applicationMode();
+#endif
 	}
-
 }
 
-void applicationMode(void)
+void application(void)
 {
 	if (c == '.') {
 		//			printf(". detected, dumping all elements\n");
@@ -189,28 +196,35 @@ void UART0_IRQHandler(void)
 {
 	uint8_t i;
 
-	//	if (UART0->S1 & (UART_S1_OR_MASK |UART_S1_NF_MASK | UART_S1_FE_MASK | UART_S1_PF_MASK))
-	//	{
-	//		// clear the error flags
-	//		UART0->S1 |= UART0_S1_OR_MASK | UART0_S1_NF_MASK | 	UART0_S1_FE_MASK | UART0_S1_PF_MASK;
-	//		// read the data register to clear RDRF
-	//		ch = UART0->D;
-	//	}
-	if (UART0->S1 & UART0_S1_RDRF_MASK)
+	if (UART0->S1 & (UART_S1_OR_MASK | UART_S1_NF_MASK | UART_S1_FE_MASK))
 	{
-		// received a character
+		// clear the error flags
+		UART0->S1 |= UART0_S1_OR_MASK | UART0_S1_NF_MASK | UART0_S1_FE_MASK;
+		// read the data register to clear RDRF
 		i = UART0->D;
-		inputReady = true;
-		UART0->D = i;
-
 	}
-	if ( (UART0->C2 & UART0_C2_TIE_MASK) && (UART0->S1 & UART0_S1_TDRE_MASK) ) // transmitter interrupt enabled
+	if (receiveReady() == success)
 	{
-		// can send another character
-		if(inputReady == true)
+#if applicationMode == 0
+		// received a character
+		i = UART0_Receive_Poll();
+		inputReady = true;
+
+		if ( transmitReady() == success) // transmitter interrupt enabled
 		{
-			UART0->D = i;
-			inputReady = false;
+			if (inputReady == true)
+			{
+				UART0_Transmit_Poll(i);
+				inputReady = false;
+			}
+
 		}
+#endif
+
+#if applicationMode == 1
+		i = UART0_Receive_Poll();
+		c = i;
+		inputReady = true;
+#endif
 	}
 }
