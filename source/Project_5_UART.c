@@ -186,12 +186,12 @@ void application(void)
 		//				printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
 		//			delAllElements(txBuf);
 		//			sendString("DONE");
+		log_message(DEBUG, __func__, "Printing buffer report");
 		reportPrint = true;
 		if(reportPrint){
 			printReport();
 			reportPrint = false;
 		}
-		log_message(DEBUG, __func__, "Printing buffer report");
 		return;
 	}
 
