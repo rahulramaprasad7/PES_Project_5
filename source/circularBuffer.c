@@ -133,8 +133,10 @@ enum bufErrorCode checkEmpty(circularBuf *inBuf)
 enum bufErrorCode addElement(circularBuf *inBuf, uint8_t inData)
 {
 	START_CRITICAL;
-	if (checkFull(inBuf) == bufferFull)
+	if (checkFull(inBuf) == bufferFull){
+		END_CRITICAL;
 		return failure;
+	}
 
 	inBuf->charArray[inBuf->tail] = inData;
 	inBuf->tail = (inBuf->tail + 1) % inBuf->length;
@@ -153,6 +155,7 @@ uint8_t delElement(circularBuf *inBuf)
 	if (checkEmpty(inBuf) == bufferEmpty || checkEmpty(inBuf) == failure) {
 		emptyBuffer(inBuf);
 //		printf("BUFFER EMPTIED\n");
+		END_CRITICAL;
 		return 0xFE;
 	}
 

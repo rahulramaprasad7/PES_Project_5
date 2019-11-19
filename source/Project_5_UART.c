@@ -6,10 +6,11 @@
 #include "uartIncludes.h"
 #include "circularBuffer.h"
 
-uint8_t c;
+volatile uint8_t c;
 bool inputReady = false;
 
 volatile bool reportPrint = false;
+volatile bool txBufferReady = false;
 
 circularBuf *txBuf;
 circularBuf *rxBuf;
@@ -19,7 +20,7 @@ void sendChara(char in)
 {
 	//Send 1 char
 	//	while(!(EUSCI_A0->IFG & EUSCI_A_IFG_TXIFG));
-//	UART0_Transmit_Poll((uint8_t) in);
+	//	UART0_Transmit_Poll((uint8_t) in);
 	transmitPoll((uint8_t)in);
 	//	UART0->D = (uint8_t)in;
 }
@@ -56,6 +57,26 @@ enum bufErrorCode initTxBuf(uint32_t inLength)
 	return success;
 }
 
+enum bufErrorCode initRxBuf(uint32_t inLength)
+{
+	rxBuf = (circularBuf *)malloc(sizeof(circularBuf));
+
+	if (rxBuf == NULL)
+		return failure;
+	rxBuf->charArray = (uint8_t *)malloc(inLength);
+	if (rxBuf->charArray == NULL) {
+		free(rxBuf);
+		rxBuf = NULL;
+		return failure;
+	}
+	rxBuf->length = inLength;
+	rxBuf->count = 0;
+
+	rxBuf->head = 0;
+	rxBuf->tail = 0;
+	return success;
+}
+
 int main(void)
 {
 	//	uint8_t c;
@@ -70,6 +91,7 @@ int main(void)
 	uartInit();
 
 	initTxBuf(8);
+	initRxBuf(128);
 
 	//	while (addElement(txBuf, il) != failure) {
 	//		printf("Added %d\n", il);
@@ -86,10 +108,44 @@ int main(void)
 	}
 
 	zeroFullBuffer(txBuf);
+#if interruptEnable == 1
+	if (!(UART0->C2 & UART0_C2_TIE_MASK))
+	{
+		UART0->C2 |= UART0_C2_TIE(1);
+	}
+#endif
 
 
 	while (1)
 	{
+		//
+		//#if interruptEnable == 1
+		//		if (!(UART0->C2 & UART0_C2_TIE_MASK))
+		//		{
+		//			UART0->C2 |= UART0_C2_TIE(1);
+		//		}
+		//#endif
+
+#if applicationMode == 1
+#if interruptEnable == 1
+		if(txBufferReady){
+			//			printf("READY\n");
+			if(transmitReady() == success){
+				//				printf("READY 2\n");
+				char txChar = delElement(rxBuf);
+				if(txChar == 0xFE){
+					txBufferReady = false;
+				} else {
+					//					printf("SEND\n");
+					sendChara(txChar);
+				}
+			}
+		}
+#endif
+#endif
+
+
+
 #if applicationMode == 0
 #if interruptEnable == 0
 		echoPoll();
@@ -102,6 +158,7 @@ int main(void)
 #endif
 
 #if interruptEnable == 1
+
 		if (inputReady == true)
 		{
 			inputReady = false;
@@ -185,16 +242,30 @@ void printReport(void)
 	for(int i = 0; (i < 95) && reportPrint; i++){
 		if(report[i] != 0){
 			sprintf (buf, "%c: %d; ", i + 32, report[i]);
+#if applicationMode == 1
+#if interruptEnable == 0
 			sendString(buf);
+#endif
+#endif
+#if applicationMode == 1
+#if interruptEnable == 1
+			int j = 0;
+			while(buf[j] != '\0'){
+				addElement(rxBuf, buf[j]);
+				j++;
+			}
+#endif
+#endif
 		}
 	}
-	//	sendString(buf);
-	sendChara('\n');
+	addElement(rxBuf, '\n');
+	txBufferReady = true;
 }
 
 void UART0_IRQHandler(void)
 {
 	uint8_t i;
+	//	printf("ISR\n");
 
 	if (UART0->S1 & (UART_S1_OR_MASK | UART_S1_NF_MASK | UART_S1_FE_MASK))
 	{
@@ -214,8 +285,10 @@ void UART0_IRQHandler(void)
 		{
 			if (inputReady == true)
 			{
+				//				printf("ISR 1\n");
 				UART0_Transmit_Poll(i);
 				inputReady = false;
+				//				UART0->C2 |= UART0_C2_TIE_MASK;
 			}
 
 		}
@@ -225,6 +298,8 @@ void UART0_IRQHandler(void)
 		i = UART0_Receive_Poll();
 		c = i;
 		inputReady = true;
+		txBufferReady = false;
 #endif
 	}
+	UART0->C2 &= ~UART0_C2_TIE(1);
 }

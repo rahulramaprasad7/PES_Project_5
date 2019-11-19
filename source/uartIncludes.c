@@ -53,8 +53,12 @@ enum bufErrorCode transmitReady()
 #endif
 
 #if interruptEnable == 1
-	if ( (UART0->C2 & UART0_C2_TIE_MASK) && (UART0->S1 & UART0_S1_TDRE_MASK) ) // transmitter interrupt enabled
+	UART0->C2 |= UART0_C2_TIE(1);
+//	printf("CHECK\n");
+	if ((UART0->S1 & UART0_S1_TDRE_MASK) ){ // transmitter interrupt enabled
 		temp =  success;
+//		printf("CHECK SUCCESS\n");
+	}
 	else
 		temp = failure;
 #endif
@@ -64,12 +68,13 @@ enum bufErrorCode transmitReady()
 void UART0_Transmit_Poll(uint8_t data)
 {
 	UART0->D = data;
+	UART0->C2 |= UART0_C2_TIE(1);
 }
 
 void transmitPoll(uint8_t data)
 {
 #if interruptEnable == 1
-	if (transmitReady() == success)
+//	if (transmitReady() == success)
 		UART0_Transmit_Poll(data);
 #endif
 
