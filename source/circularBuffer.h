@@ -20,9 +20,10 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include "MKL25Z4.h"
 
-#define START_CRITICAL() __disable_irq()
-#define END_CRITICAL() __enable_irq()
+#define START_CRITICAL __disable_irq()
+#define END_CRITICAL __enable_irq()
 
 //Enumeration defining all error codes that the circular buffer functions can return
 enum bufErrorCode {bufferFull = 1, bufferNotFull, bufferEmpty, bufferNotEmpty, success, failure};

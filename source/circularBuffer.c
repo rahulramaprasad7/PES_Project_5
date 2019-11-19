@@ -132,6 +132,7 @@ enum bufErrorCode checkEmpty(circularBuf *inBuf)
 //}
 enum bufErrorCode addElement(circularBuf *inBuf, uint8_t inData)
 {
+	START_CRITICAL;
 	if (checkFull(inBuf) == bufferFull)
 		return failure;
 
@@ -140,12 +141,14 @@ enum bufErrorCode addElement(circularBuf *inBuf, uint8_t inData)
 	inBuf->count++;
 //	printf("Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
 
+	END_CRITICAL;
 	return success;
 }
 
 //delete an element in the buffer
 uint8_t delElement(circularBuf *inBuf)
 {
+	START_CRITICAL;
 	//Check if the buffer is empty
 	if (checkEmpty(inBuf) == bufferEmpty || checkEmpty(inBuf) == failure) {
 		emptyBuffer(inBuf);
@@ -159,6 +162,7 @@ uint8_t delElement(circularBuf *inBuf)
 	inBuf->head = (inBuf->head + 1) % inBuf->length;
 	//Adjust buffer count
 	inBuf->count--;
+	END_CRITICAL;
 	//Return the deleted element
 	return readChar;
 }

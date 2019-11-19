@@ -4,9 +4,9 @@ circularBuffer.c:70:6:zeroFullBuffer	24	static
 circularBuffer.c:81:19:checkFull	16	static
 circularBuffer.c:99:19:checkEmpty	16	static
 circularBuffer.c:133:19:addElement	16	static
-circularBuffer.c:147:9:delElement	32	static
-circularBuffer.c:167:19:emptyBuffer	16	static
-circularBuffer.c:184:19:destroyBuffer	16	static
-circularBuffer.c:210:19:verifyBuffer	16	static
-circularBuffer.c:225:19:verifyBufPointer	16	static
-circularBuffer.c:239:19:initBuffer	16	static
+circularBuffer.c:149:9:delElement	32	static
+circularBuffer.c:171:19:emptyBuffer	16	static
+circularBuffer.c:188:19:destroyBuffer	16	static
+circularBuffer.c:214:19:verifyBuffer	16	static
+circularBuffer.c:229:19:verifyBufPointer	16	static
+circularBuffer.c:243:19:initBuffer	16	static
