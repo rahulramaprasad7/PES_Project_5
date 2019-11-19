@@ -115,8 +115,9 @@ int main(void)
 			printf("Buffer Full, realloc to %lu\n", txBuf->length * 2);
 			txBuf->length *= 2;
 			uint8_t *bufTemp = txBuf->charArray;
-
-			txBuf->charArray = realloc(txBuf->charArray, 16);
+//			uint32_t tempSize = txBuf->length;
+//			uint8_t tempSizeByte = uint8_t()
+			txBuf->charArray = realloc(txBuf->charArray, txBuf->length);
 
 			if (txBuf->charArray == NULL) {
 				printf("Realloc failed\nDumping all elements");
