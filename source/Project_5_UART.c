@@ -100,7 +100,6 @@ int main(void)
 #endif
 
 
-
 		applicationMode();
 	}
 
