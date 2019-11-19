@@ -6,6 +6,7 @@
 #include "uartIncludes.h"
 #include "circularBuffer.h"
 
+uint8_t c;
 bool inputReady = false;
 
 volatile bool reportPrint = false;
@@ -87,7 +88,7 @@ int main(void)
 	while (1)
 	{
 #ifdef pollingEnable
-		uint8_t c = (uint8_t)UART0_Receive_Poll();
+		c = (uint8_t)UART0_Receive_Poll();
 		//		UART0_Transmit_Poll((char)c);
 #endif
 
@@ -99,68 +100,71 @@ int main(void)
 #endif
 
 
-		//		scanf("%c", &temp);
 
+		applicationMode();
+	}
 
-		if (c == '.') {
-			//			printf(". detected, dumping all elements\n");
-			//			for(uint8_t i = 0; i < txBuf->length; i++)
-			//				printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
-			//			delAllElements(txBuf);
-			//			sendString("DONE");
-			reportPrint = true;
-			if(reportPrint){
-				printReport();
-				reportPrint = false;
-			}
-			continue;
-		}
+}
 
-		if (addElement(txBuf, c) == failure) {
-			START_CRITICAL;
-			//			sendString("REL");
-
-			//			printf("Buffer Full, realloc to %lu\n", txBuf->length * 2);
-			txBuf->length *= 2;
-			uint8_t *bufTemp = txBuf->charArray;
-			//			uint32_t tempSize = txBuf->length;
-			//			uint8_t tempSizeByte = uint8_t()
-			txBuf->charArray = realloc(txBuf->charArray, txBuf->length);
-
-			if (txBuf->charArray == NULL) {
-				//				printf("Realloc failed\nDumping all elements");
-				txBuf->charArray = bufTemp;
-				txBuf->length /= 2;
-				reportPrint = true;
-				if(reportPrint){
-					sendChara('\n');
-					sendString("Buffer full, dumping elements");
-					sendChara('\n');
-					printReport();
-					reportPrint = false;
-				}
-			} else {
-				if (txBuf->tail == txBuf->head) {
-					//				printf("Buffer Wrapped, moving elements\n");
-					adjustElements(txBuf);
-				}
-			}
-			//			sendString("RCD");
-
-			if (addElement(txBuf, c) == failure)
-				return 1;
-			END_CRITICAL;
-		}
-
-		//		for(uint8_t i = 0; i < txBuf->length; i++)
-		//			printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
-
+void applicationMode(void)
+{
+	if (c == '.') {
+		//			printf(". detected, dumping all elements\n");
+		//			for(uint8_t i = 0; i < txBuf->length; i++)
+		//				printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
+		//			delAllElements(txBuf);
+		//			sendString("DONE");
+		reportPrint = true;
 		if(reportPrint){
 			printReport();
 			reportPrint = false;
 		}
+		return;
 	}
 
+	if (addElement(txBuf, c) == failure) {
+		START_CRITICAL;
+		//			sendString("REL");
+
+		//			printf("Buffer Full, realloc to %lu\n", txBuf->length * 2);
+		txBuf->length *= 2;
+		uint8_t *bufTemp = txBuf->charArray;
+		//			uint32_t tempSize = txBuf->length;
+		//			uint8_t tempSizeByte = uint8_t()
+		txBuf->charArray = realloc(txBuf->charArray, txBuf->length);
+
+		if (txBuf->charArray == NULL) {
+			//				printf("Realloc failed\nDumping all elements");
+			txBuf->charArray = bufTemp;
+			txBuf->length /= 2;
+			reportPrint = true;
+			if(reportPrint){
+				sendChara('\n');
+				sendString("Buffer full, dumping elements");
+				sendChara('\n');
+				printReport();
+				reportPrint = false;
+			}
+		} else {
+			if (txBuf->tail == txBuf->head) {
+				//				printf("Buffer Wrapped, moving elements\n");
+				adjustElements(txBuf);
+			}
+		}
+		//			sendString("RCD");
+
+		if (addElement(txBuf, c) == failure)
+			return;
+		END_CRITICAL;
+	}
+
+	//		for(uint8_t i = 0; i < txBuf->length; i++)
+	//			printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
+
+	if(reportPrint){
+		printReport();
+		reportPrint = false;
+	}
 }
 
 void printReport(void)
