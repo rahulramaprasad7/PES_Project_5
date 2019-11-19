@@ -43,14 +43,16 @@ void uartInit()
 
 void UART0_Transmit_Poll(uint8_t data)
 {
-		while (!(UART0->S1 & UART0_S1_TDRE_MASK));		//Wait till Transmitter Data Register Empty flag is set
-		UART0->D = data;
+	UART0->S1 |= UART0_S1_OR_MASK;
+	while (!(UART0->S1 & UART0_S1_TDRE_MASK));		//Wait till Transmitter Data Register Empty flag is set
+	UART0->D = data;
 }
 
 uint8_t UART0_Receive_Poll(void)
 {
-		while (!(UART0->S1 & UART0_S1_RDRF_MASK));		//Wait till Receiver Data Register full flag is set
-		return UART0->D;
+
+	while (!(UART0->S1 & UART0_S1_RDRF_MASK));		//Wait till Receiver Data Register full flag is set
+	return UART0->D;
 }
 
 

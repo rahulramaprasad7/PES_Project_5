@@ -1,3 +1,3 @@
 uartIncludes.c:10:6:uartInit	8	static
 uartIncludes.c:44:6:UART0_Transmit_Poll	16	static
-uartIncludes.c:50:9:UART0_Receive_Poll	8	static
+uartIncludes.c:51:9:UART0_Receive_Poll	8	static
