@@ -18,8 +18,8 @@ uint8_t inBuffer[20];
 //move the elements of the circular buffer during reallocation
 enum bufErrorCode adjustElements(circularBuf *inBuf)
 {
-	for(uint8_t m = 0; m < txBuf->length; m++)
-		printf("ALL: %d: %c\n", m, txBuf->charArray[m]);
+//	for(uint8_t m = 0; m < txBuf->length; m++)
+//		printf("ALL: %d: %c\n", m, txBuf->charArray[m]);
 
 	//Check if the input buffer is valid, else return failure
 	if(inBuf == NULL)
@@ -31,7 +31,7 @@ enum bufErrorCode adjustElements(circularBuf *inBuf)
 	uint32_t l = (inBuf->length / 2);
 
 	//inform the user if the buffer has wrapped
-	printf("Buffer Wrapped, moving elements\n");
+//	printf("Buffer Wrapped, moving elements\n");
 	for (uint32_t i = 0; i < l - inBuf->head; ++i)
 	{
 		//move the elements of the buffer to the leftmost side, one by one
@@ -42,8 +42,8 @@ enum bufErrorCode adjustElements(circularBuf *inBuf)
 	//Adjust the head of the buffer to the new location
 	inBuf->head = inBuf->head + l;
 	//For error handling
-	for(uint8_t l = 0; l < txBuf->length; l++)
-		printf("ALL: %d: %c\n", l, txBuf->charArray[l]);
+//	for(uint8_t l = 0; l < txBuf->length; l++)
+//		printf("ALL: %d: %c\n", l, txBuf->charArray[l]);
 	return success;
 }
 
@@ -59,7 +59,7 @@ enum bufErrorCode delAllElements(circularBuf *inBuf)
 	//Print and empty all elements of the input buffer
 	uint8_t c;
 	while ((c = delElement(inBuf)) != 0xFE) {
-		printf("Delete: %c\n", c);
+//		printf("Delete: %c\n", c);
 	}
 	//Error handling
 	return success;
@@ -88,7 +88,7 @@ enum bufErrorCode checkFull(circularBuf *inBuf)
 
 	//If the count of the buffer is equal to the length, then the buffer is full
 	if (inBuf->count == inBuf->length) {
-		printf("CHECKFULL Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
+//		printf("CHECKFULL Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
 		return bufferFull;
 	}
 	else
@@ -138,7 +138,7 @@ enum bufErrorCode addElement(circularBuf *inBuf, uint8_t inData)
 	inBuf->charArray[inBuf->tail] = inData;
 	inBuf->tail = (inBuf->tail + 1) % inBuf->length;
 	inBuf->count++;
-	printf("Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
+//	printf("Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
 
 	return success;
 }

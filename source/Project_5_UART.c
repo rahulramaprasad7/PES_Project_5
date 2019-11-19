@@ -87,7 +87,7 @@ int main(void)
 	{
 #ifdef pollingEnable
 		uint8_t c = (uint8_t)UART0_Receive_Poll();
-		UART0_Transmit_Poll((char)c);
+//		UART0_Transmit_Poll((char)c);
 #endif
 
 #if interruptEnable == 1
@@ -103,16 +103,18 @@ int main(void)
 
 
 		if (c == '.') {
-			printf(". detected, dumping all elements\n");
-			for(uint8_t i = 0; i < txBuf->length; i++)
-				printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
-			delAllElements(txBuf);
+//			printf(". detected, dumping all elements\n");
+//			for(uint8_t i = 0; i < txBuf->length; i++)
+//				printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
+//			delAllElements(txBuf);
+			sendString("DONE");
 			continue;
 		}
 
 		if (addElement(txBuf, c) == failure) {
+			sendString("REL");
 
-			printf("Buffer Full, realloc to %lu\n", txBuf->length * 2);
+//			printf("Buffer Full, realloc to %lu\n", txBuf->length * 2);
 			txBuf->length *= 2;
 			uint8_t *bufTemp = txBuf->charArray;
 //			uint32_t tempSize = txBuf->length;
@@ -120,23 +122,24 @@ int main(void)
 			txBuf->charArray = realloc(txBuf->charArray, txBuf->length);
 
 			if (txBuf->charArray == NULL) {
-				printf("Realloc failed\nDumping all elements");
+//				printf("Realloc failed\nDumping all elements");
 				txBuf->charArray = bufTemp;
 
 				delAllElements(txBuf);
 			}
 
 			if (txBuf->tail == txBuf->head) {
-				printf("Buffer Wrapped, moving elements\n");
+//				printf("Buffer Wrapped, moving elements\n");
 				adjustElements(txBuf);
 			}
+			sendString("RCD");
 
 			if (addElement(txBuf, c) == failure)
 				return 1;
 		}
 
-		for(uint8_t i = 0; i < txBuf->length; i++)
-			printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
+//		for(uint8_t i = 0; i < txBuf->length; i++)
+//			printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
 
 	}
 

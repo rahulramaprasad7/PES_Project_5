@@ -1,4 +1,4 @@
-circularBuffer.c:19:19:adjustElements	40	static
+circularBuffer.c:19:19:adjustElements	24	static
 circularBuffer.c:51:19:delAllElements	32	static
 circularBuffer.c:70:6:zeroFullBuffer	24	static
 circularBuffer.c:81:19:checkFull	16	static
