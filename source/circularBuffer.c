@@ -149,7 +149,7 @@ uint8_t delElement(circularBuf *inBuf)
 	//Check if the buffer is empty
 	if (checkEmpty(inBuf) == bufferEmpty || checkEmpty(inBuf) == failure) {
 		emptyBuffer(inBuf);
-		printf("BUFFER EMPTIED\n");
+//		printf("BUFFER EMPTIED\n");
 		return 0xFE;
 	}
 

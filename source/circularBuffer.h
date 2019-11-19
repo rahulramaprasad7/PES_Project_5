@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define START_CRITICAL() __disable_irq()
 #define END_CRITICAL() __enable_irq()
@@ -175,5 +176,7 @@ enum bufErrorCode delAllElements(circularBuf *inBuf);
 enum bufErrorCode adjustElements(circularBuf *inBuf);
 
 enum bufErrorCode initTxBuf(uint32_t inLength);
+
+void printReport(void);
 
 #endif

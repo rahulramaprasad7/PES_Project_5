@@ -8,6 +8,8 @@
 
 bool inputReady = false;
 
+volatile bool reportPrint = false;
+
 circularBuf *txBuf;
 circularBuf *rxBuf;
 
@@ -87,7 +89,7 @@ int main(void)
 	{
 #ifdef pollingEnable
 		uint8_t c = (uint8_t)UART0_Receive_Poll();
-//		UART0_Transmit_Poll((char)c);
+		//		UART0_Transmit_Poll((char)c);
 #endif
 
 #if interruptEnable == 1
@@ -103,46 +105,74 @@ int main(void)
 
 
 		if (c == '.') {
-//			printf(". detected, dumping all elements\n");
-//			for(uint8_t i = 0; i < txBuf->length; i++)
-//				printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
-//			delAllElements(txBuf);
-			sendString("DONE");
+			//			printf(". detected, dumping all elements\n");
+			//			for(uint8_t i = 0; i < txBuf->length; i++)
+			//				printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
+			//			delAllElements(txBuf);
+//			sendString("DONE");
+			reportPrint = true;
+			if(reportPrint){
+				printReport();
+				reportPrint = false;
+			}
 			continue;
 		}
 
 		if (addElement(txBuf, c) == failure) {
-			sendString("REL");
+//			sendString("REL");
 
-//			printf("Buffer Full, realloc to %lu\n", txBuf->length * 2);
+			//			printf("Buffer Full, realloc to %lu\n", txBuf->length * 2);
 			txBuf->length *= 2;
 			uint8_t *bufTemp = txBuf->charArray;
-//			uint32_t tempSize = txBuf->length;
-//			uint8_t tempSizeByte = uint8_t()
+			//			uint32_t tempSize = txBuf->length;
+			//			uint8_t tempSizeByte = uint8_t()
 			txBuf->charArray = realloc(txBuf->charArray, txBuf->length);
 
 			if (txBuf->charArray == NULL) {
-//				printf("Realloc failed\nDumping all elements");
+				//				printf("Realloc failed\nDumping all elements");
 				txBuf->charArray = bufTemp;
 
 				delAllElements(txBuf);
 			}
 
 			if (txBuf->tail == txBuf->head) {
-//				printf("Buffer Wrapped, moving elements\n");
+				//				printf("Buffer Wrapped, moving elements\n");
 				adjustElements(txBuf);
 			}
-			sendString("RCD");
+//			sendString("RCD");
 
 			if (addElement(txBuf, c) == failure)
 				return 1;
 		}
 
-//		for(uint8_t i = 0; i < txBuf->length; i++)
-//			printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
+		//		for(uint8_t i = 0; i < txBuf->length; i++)
+		//			printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
 
+		if(reportPrint){
+			printReport();
+			reportPrint = false;
+		}
 	}
 
+}
+
+void printReport(void)
+{
+	sendChara('\n');
+	uint8_t inChar;
+	unsigned int report[95] = {0};
+	char buf[10];
+	while(((inChar = delElement(txBuf)) != 0xFE) && reportPrint){
+		report[inChar - 32]++;
+	}
+	for(int i = 0; (i < 95) && reportPrint; i++){
+		if(report[i] != 0){
+			sprintf (buf, "%c: %d; ", i + 32, report[i]);
+			sendString(buf);
+		}
+	}
+//	sendString(buf);
+	sendChara('\n');
 }
 
 void UART0_IRQHandler(void)
