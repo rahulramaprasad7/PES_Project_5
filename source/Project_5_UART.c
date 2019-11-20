@@ -1,6 +1,14 @@
 /*
- * @file    Project_5_UART.c
- * @brief   Application entry point.
+ * @file Project_5_UART.c
+ * @brief Source file that circular buffer and UART
+ *
+ * This source file initialises the UART register,
+ * runs the UART functions and circular buffers.
+ *
+ *
+ * @authors Rahul Ramaprasad, Prayag Milan Desai
+ * @date November 19 2019
+ * @verison 1.0
  */
 
 #include "uartIncludes.h"
@@ -21,11 +29,7 @@ circularBuf *rxBuf;
 
 void sendChara(char in)
 {
-	//Send 1 char
-	//	while(!(EUSCI_A0->IFG & EUSCI_A_IFG_TXIFG));
-	//	UART0_Transmit_Poll((uint8_t) in);
 	transmitPoll((uint8_t)in);
-	//	UART0->D = (uint8_t)in;
 }
 
 
@@ -114,9 +118,6 @@ int main(void)
 	//Initialize the systick timer to tick in 15 seconds
 	Init_SysTick();
 
-	//	/* Init FSL debug console. */
-	//	BOARD_InitDebugConsole();
-
 #ifndef test
 	if(initTxBuf(8) == failure){
 		log_message(NORMAL, __func__, "TX buffer initial allocation failed, terminating program");
@@ -132,20 +133,6 @@ int main(void)
 	unitTest();
 #endif
 
-	//	while (addElement(txBuf, il) != failure) {
-	//		printf("Added %d\n", il);
-	//		printf("Chararray: %d\n", txBuf->charArray[il]);
-	//		il++;
-	//	}
-	//	printf("DONE\n");
-
-//	for(int i = 0; i < txBuf->length; i++){
-//		printf("Buffer: %d\n", txBuf->charArray[i]);
-//		char tempHolder[15];
-//		sprintf(tempHolder, "Buffer: %c\n", txBuf->charArray[i]);
-//		sendString(tempHolder);
-//	}
-
 	zeroFullBuffer(txBuf);
 #if interruptEnable == 1
 	if (!(UART0->C2 & UART0_C2_TIE_MASK))
@@ -157,13 +144,6 @@ int main(void)
 
 	while (1)
 	{
-		//
-		//#if interruptEnable == 1
-		//		if (!(UART0->C2 & UART0_C2_TIE_MASK))
-		//		{
-		//			UART0->C2 |= UART0_C2_TIE(1);
-		//		}
-		//#endif
 
 #if applicationMode == 1
 #if interruptEnable == 1
@@ -211,11 +191,6 @@ int main(void)
 void application(void)
 {
 	if (c == '.') {
-		//			printf(". detected, dumping all elements\n");
-		//			for(uint8_t i = 0; i < txBuf->length; i++)
-		//				printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
-		//			delAllElements(txBuf);
-		//			sendString("DONE");
 		log_message(NORMAL, __func__, "Printing buffer report");
 		log_message(DEBUG, __func__, "Printing buffer report");
 		reportPrint = true;
@@ -234,8 +209,6 @@ void application(void)
 		//			printf("Buffer Full, realloc to %lu\n", txBuf->length * 2);
 		txBuf->length *= 2;
 		uint8_t *bufTemp = txBuf->charArray;
-		//			uint32_t tempSize = txBuf->length;
-		//			uint8_t tempSizeByte = uint8_t()
 		txBuf->charArray = realloc(txBuf->charArray, txBuf->length);
 		UCUNIT_Tracepoint(0);
 
@@ -253,7 +226,6 @@ void application(void)
 			}
 		} else {
 			if (txBuf->tail == txBuf->head) {
-				//				printf("Buffer Wrapped, moving elements\n");
 				UCUNIT_Tracepoint(1);
 				adjustElements(txBuf);
 			}
@@ -265,9 +237,6 @@ void application(void)
 		END_CRITICAL;
 		log_message(DEBUG, __func__, "Buffer adjustment successful");
 	}
-
-	//		for(uint8_t i = 0; i < txBuf->length; i++)
-	//			printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
 
 	if(reportPrint){
 		printReport();

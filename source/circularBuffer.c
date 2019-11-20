@@ -31,7 +31,6 @@ enum bufErrorCode adjustElements(circularBuf *inBuf)
 	uint32_t l = (inBuf->length / 2);
 
 	//inform the user if the buffer has wrapped
-//	printf("Buffer Wrapped, moving elements\n");
 	for (uint32_t i = 0; i < l - inBuf->head; ++i)
 	{
 		//move the elements of the buffer to the leftmost side, one by one
@@ -42,8 +41,6 @@ enum bufErrorCode adjustElements(circularBuf *inBuf)
 	//Adjust the head of the buffer to the new location
 	inBuf->head = inBuf->head + l;
 	//For error handling
-//	for(uint8_t l = 0; l < txBuf->length; l++)
-//		printf("ALL: %d: %c\n", l, txBuf->charArray[l]);
 	return success;
 }
 
@@ -70,7 +67,6 @@ enum bufErrorCode delAllElements(circularBuf *inBuf)
 void zeroFullBuffer(circularBuf *inBuf)
 {
 	//Zero all elements from index 0 to last
-	printf("Buffer:\n");
 	for (int i = 0; i < inBuf->length; ++i)
 	{
 		inBuf->charArray[i] = 0;
@@ -88,7 +84,6 @@ enum bufErrorCode checkFull(circularBuf *inBuf)
 
 	//If the count of the buffer is equal to the length, then the buffer is full
 	if (inBuf->count == inBuf->length) {
-//		printf("CHECKFULL Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
 		return bufferFull;
 	}
 	else
@@ -111,25 +106,7 @@ enum bufErrorCode checkEmpty(circularBuf *inBuf)
 		return bufferNotEmpty;
 }
 
-//Add an element to the buffer
-//enum bufErrorCode addElement(circularBuf *inBuf, char inData)
-//{
-//	//check if the buffer is full
-//	if (checkFull(inBuf) == bufferFull || checkFull(inBuf) == failure)
-//		return failure;
-//
-//	//Add an element to the end of the buffer
-//	inBuf->charArray[inBuf->tail] = inData;
-//	//Adjust the tail of the buffer, caring for the wrap around
-//	inBuf->tail = (inBuf->tail + 1) % inBuf->length;
-//	//Adjust the number of elements in the buffer
-//	inBuf->count = inBuf->count + 1;
-//	//for debugging
-////	printf("Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
-//
-//	//status of the operation
-//	return success;
-//}
+
 enum bufErrorCode addElement(circularBuf *inBuf, uint8_t inData)
 {
 	START_CRITICAL;
@@ -141,7 +118,6 @@ enum bufErrorCode addElement(circularBuf *inBuf, uint8_t inData)
 	inBuf->charArray[inBuf->tail] = inData;
 	inBuf->tail = (inBuf->tail + 1) % inBuf->length;
 	inBuf->count++;
-//	printf("Head: %lu Tail: %lu\n", inBuf->head, inBuf->tail);
 
 	END_CRITICAL;
 	return success;
@@ -154,7 +130,6 @@ uint8_t delElement(circularBuf *inBuf)
 	//Check if the buffer is empty
 	if (checkEmpty(inBuf) == bufferEmpty || checkEmpty(inBuf) == failure) {
 		emptyBuffer(inBuf);
-//		printf("BUFFER EMPTIED\n");
 		END_CRITICAL;
 		return 0xFE;
 	}
@@ -259,12 +234,6 @@ enum bufErrorCode initBuffer(circularBuf *inBuf, size_t inLength)
 	inBuf->count = 0;
 	//Allocate space for circular buffer
 	inBuf->charArray = malloc(sizeof(inBuf->length * sizeof(char)));
-	//If the allocation failed, free the metadata and set the pointers to NULL
-	//	if (inBuf->charArray == NULL) {
-	//		free(inBuf);
-	//		txBuf = NULL;
-	//		return failure;
-	//	}
 
 	//Set the head and tail to initial values
 	inBuf->head = 0;

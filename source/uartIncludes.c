@@ -1,8 +1,13 @@
 /*
- * uartIncludes.c
+ * @file uartIncludes.c
+ * @brief Source file that controls the UART
  *
- *  Created on: Nov 16, 2019
- *      Author: rahul
+ * This source file initialises UART registers
+ * and defines the transmit and recieve functions
+ *
+ * @authors Rahul Ramaprasad, Prayag Milan Desai
+ * @date November 19 2019
+ * @verison 1.0
  */
 
 #include "uartIncludes.h"
@@ -70,6 +75,8 @@ enum bufErrorCode transmitReady()
 
 void UART0_Transmit_Poll(uint8_t data)
 {
+//	ledOff();
+//	greenLED();
 	UART0->D = data;
 	UART0->C2 |= UART0_C2_TIE(1);
 }
@@ -116,8 +123,7 @@ uint8_t UART0_Receive_Poll(void)
 
 uint8_t receivePoll()
 {
-//	ledOff();
-//	blueLED();
+
 #if interruptEnable == 1
 	if (receiveReady() == success)
 		transmitTemp = UART0_Receive_Poll();
