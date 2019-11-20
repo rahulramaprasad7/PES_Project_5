@@ -5,6 +5,8 @@
 
 #include "uartIncludes.h"
 #include "circularBuffer.h"
+#include "uCUnit.h"
+#include "unitTest.h"
 
 volatile uint8_t c;
 bool inputReady = false;
@@ -98,9 +100,14 @@ int main(void)
 	//	/* Init FSL debug console. */
 	//	BOARD_InitDebugConsole();
 
-
+#ifndef test
 	initTxBuf(8);
 	initRxBuf(128);
+#endif
+
+#ifdef test
+	unitTest();
+#endif
 
 	//	while (addElement(txBuf, il) != failure) {
 	//		printf("Added %d\n", il);
@@ -205,6 +212,7 @@ void application(void)
 		//			uint32_t tempSize = txBuf->length;
 		//			uint8_t tempSizeByte = uint8_t()
 		txBuf->charArray = realloc(txBuf->charArray, txBuf->length);
+		UCUNIT_Tracepoint(0);
 
 		if (txBuf->charArray == NULL) {
 			//				printf("Realloc failed\nDumping all elements");
@@ -221,6 +229,7 @@ void application(void)
 		} else {
 			if (txBuf->tail == txBuf->head) {
 				//				printf("Buffer Wrapped, moving elements\n");
+				UCUNIT_Tracepoint(1);
 				adjustElements(txBuf);
 			}
 		}

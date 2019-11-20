@@ -52,6 +52,7 @@ extern circularBuf *rxBuf;
 extern uint8_t *charArray1;
 extern unsigned long tenth;
 extern volatile bool txBufferReady;
+extern volatile uint8_t c;
 
 /*
  * @brief check if the buffer is full
