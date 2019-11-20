@@ -9,7 +9,8 @@ source/Project_5_UART.o source/Project_5_UART.d: \
  ../board/pin_mux.h ../board/clock_config.h ../CMSIS/MKL25Z4.h \
  ../utilities/fsl_debug_console.h ../source/circularBuffer.h \
  ../source/ledControl.h ../source/../CMSIS/MKL25Z4.h \
- ../source/loggerFunctions.h ../source/uCUnit.h ../source/System.h
+ ../source/loggerFunctions.h ../source/uCUnit.h ../source/System.h \
+ ../source/unitTest.h
 
 ../source/uartIncludes.h:
 
@@ -62,3 +63,5 @@ source/Project_5_UART.o source/Project_5_UART.d: \
 ../source/uCUnit.h:
 
 ../source/System.h:
+
+../source/unitTest.h:

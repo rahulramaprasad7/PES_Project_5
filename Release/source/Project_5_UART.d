@@ -7,7 +7,10 @@ source/Project_5_UART.o source/Project_5_UART.d: \
  ../CMSIS/MKL25Z4_features.h ../drivers/fsl_clock.h \
  ../drivers/fsl_common.h ../drivers/fsl_gpio.h ../board/peripherals.h \
  ../board/pin_mux.h ../board/clock_config.h ../CMSIS/MKL25Z4.h \
- ../utilities/fsl_debug_console.h ../source/circularBuffer.h
+ ../utilities/fsl_debug_console.h ../source/circularBuffer.h \
+ ../source/ledControl.h ../source/../CMSIS/MKL25Z4.h \
+ ../source/loggerFunctions.h ../source/uCUnit.h ../source/System.h \
+ ../source/unitTest.h
 
 ../source/uartIncludes.h:
 
@@ -50,3 +53,15 @@ source/Project_5_UART.o source/Project_5_UART.d: \
 ../utilities/fsl_debug_console.h:
 
 ../source/circularBuffer.h:
+
+../source/ledControl.h:
+
+../source/../CMSIS/MKL25Z4.h:
+
+../source/loggerFunctions.h:
+
+../source/uCUnit.h:
+
+../source/System.h:
+
+../source/unitTest.h:

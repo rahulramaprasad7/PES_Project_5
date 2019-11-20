@@ -1181,6 +1181,12 @@
 &lt;/TargetConfig&gt;</projectStorage>
 	</storageModule>
 	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="normal">
+			<resource resourceType="PROJECT" workspacePath="/PES_Project_5"/>
+		</configuration>
+		<configuration configurationName="test">
+			<resource resourceType="PROJECT" workspacePath="/PES_Project_5"/>
+		</configuration>
 		<configuration configurationName="Debug">
 			<resource resourceType="PROJECT" workspacePath="/PES_Project_5"/>
 		</configuration>

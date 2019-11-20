@@ -1,4 +1,8 @@
-Project_5_UART.c:15:6:sendChara	8	static
-Project_5_UART.c:24:6:sendString	8	static
-Project_5_UART.c:35:5:main	40	static
-Project_5_UART.c:107:6:UART0_IRQHandler	0	static
+Project_5_UART.c:22:6:sendChara	8	static
+Project_5_UART.c:32:6:sendString	8	static
+Project_5_UART.c:43:19:initTxBuf	16	static
+Project_5_UART.c:63:19:initRxBuf	16	static
+Project_5_UART.c:255:6:printReport	408	static
+Project_5_UART.c:188:6:application	32	static
+Project_5_UART.c:83:5:main	32	static
+Project_5_UART.c:287:6:UART0_IRQHandler	8	static

@@ -5,33 +5,36 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../source/Project_5_UART.c \
-../source/cbtestprev.c \
+../source/System.c \
 ../source/circularBuffer.c \
 ../source/ledControl.c \
 ../source/loggerFunctions.c \
 ../source/mtb.c \
 ../source/semihost_hardfault.c \
-../source/uartIncludes.c 
+../source/uartIncludes.c \
+../source/unitTest.c 
 
 OBJS += \
 ./source/Project_5_UART.o \
-./source/cbtestprev.o \
+./source/System.o \
 ./source/circularBuffer.o \
 ./source/ledControl.o \
 ./source/loggerFunctions.o \
 ./source/mtb.o \
 ./source/semihost_hardfault.o \
-./source/uartIncludes.o 
+./source/uartIncludes.o \
+./source/unitTest.o 
 
 C_DEPS += \
 ./source/Project_5_UART.d \
-./source/cbtestprev.d \
+./source/System.d \
 ./source/circularBuffer.d \
 ./source/ledControl.d \
 ./source/loggerFunctions.d \
 ./source/mtb.d \
 ./source/semihost_hardfault.d \
-./source/uartIncludes.d 
+./source/uartIncludes.d \
+./source/unitTest.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

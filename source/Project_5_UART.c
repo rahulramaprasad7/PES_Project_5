@@ -102,7 +102,7 @@ int main(void)
 
 #ifndef test
 	initTxBuf(8);
-	initRxBuf(128);
+	initRxBuf(256);
 #endif
 
 #ifdef test
@@ -193,6 +193,7 @@ void application(void)
 		//				printf("ALL: %d: %c\n", i, txBuf->charArray[i]);
 		//			delAllElements(txBuf);
 		//			sendString("DONE");
+		log_message(NORMAL, __func__, "Printing buffer report");
 		log_message(DEBUG, __func__, "Printing buffer report");
 		reportPrint = true;
 		if(reportPrint){
@@ -203,6 +204,7 @@ void application(void)
 	}
 
 	if (addElement(txBuf, c) == failure) {
+		log_message(DEBUG, __func__, "Adding element failed, reallocating");
 		START_CRITICAL;
 		//			sendString("REL");
 
@@ -238,6 +240,7 @@ void application(void)
 		if (addElement(txBuf, c) == failure)
 			return;
 		END_CRITICAL;
+		log_message(DEBUG, __func__, "Buffer adjustment successful");
 	}
 
 	//		for(uint8_t i = 0; i < txBuf->length; i++)

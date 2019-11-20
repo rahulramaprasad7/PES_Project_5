@@ -80,36 +80,30 @@ void log_message(enum loggerMode logLevel, const char *functionName, char *messa
 
 			sprintf(buf1, "\nDEBUG: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth%10);
 			sprintf(buf2, "%s: %s\n", functionName, message);
-//			if(!txBufferReady){
-				int j = 0;
-				while(buf1[j] != '\0'){
-					if(transmitReady() == success){
-						sendChara(buf1[j]);
-						j++;
-					}
+			int j = 0;
+			while(buf1[j] != '\0'){
+				if(transmitReady() == success){
+					sendChara(buf1[j]);
+					j++;
 				}
-				j = 0;
-				while(buf2[j] != '\0'){
-					if(transmitReady() == success){
-						sendChara(buf2[j]);
-						j++;
-					}
+			}
+			j = 0;
+			while(buf2[j] != '\0'){
+				if(transmitReady() == success){
+					sendChara(buf2[j]);
+					j++;
 				}
-				j = 0;
-//				sendString(buf2);
-				sendChara('\n');
-//			}
-
-			//			printf("DEBUG: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
-			//			printf("%s: %s\n", functionName, message);
+			}
+			j = 0;
+			sendChara('\n');
 		}
 #endif
 
 #ifdef test
 		//log if test build config is selected
 		if (logLevel == TEST){
-			printf("TEST: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
-			printf("%s: %s\n", functionName, message);
+//			printf("TEST: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+//			printf("%s: %s\n", functionName, message);
 		}
 #endif
 
@@ -117,8 +111,29 @@ void log_message(enum loggerMode logLevel, const char *functionName, char *messa
 		//log if normal build config is selected
 		if (logLevel == NORMAL)
 		{
-			printf("NORMAL: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
-			printf("%s: %s\n", functionName, message);
+			char buf1[100];
+			char buf2[100];
+
+			sprintf(buf1, "\nNORMAL: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth%10);
+			sprintf(buf2, "%s: %s\n", functionName, message);
+			int j = 0;
+			while(buf1[j] != '\0'){
+				if(transmitReady() == success){
+					sendChara(buf1[j]);
+					j++;
+				}
+			}
+			j = 0;
+			while(buf2[j] != '\0'){
+				if(transmitReady() == success){
+					sendChara(buf2[j]);
+					j++;
+				}
+			}
+			j = 0;
+			sendChara('\n');
+//			printf("NORMAL: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+//			printf("%s: %s\n", functionName, message);
 		}
 #endif
 
@@ -142,25 +157,70 @@ void log_message_int(enum loggerMode logLevel, const char *functionName, char* m
 
 #ifdef debug
 		//log if debug build config is selected
-		if(logLevel == DEBUG){
-			printf("DEBUG: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
-			printf("%s: %s %d\n", functionName, message, number);
+		if(logLevel == DEBUG)
+		{
+			char buf1[100];
+			char buf2[100];
+
+			sprintf(buf1, "\nDEBUG: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth%10);
+			sprintf(buf2, "%s: %s %d\n", functionName, message, number);
+			int j = 0;
+			while(buf1[j] != '\0'){
+				if(transmitReady() == success){
+					sendChara(buf1[j]);
+					j++;
+				}
+			}
+			j = 0;
+			while(buf2[j] != '\0'){
+				if(transmitReady() == success){
+					sendChara(buf2[j]);
+					j++;
+				}
+			}
+			j = 0;
+//			sendChara('\n');
+//
+//			printf("DEBUG: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+//			printf("%s: %s %d\n", functionName, message, number);
 		}
 #endif
 
 #ifdef test
 		//log if test build config is selected
 		if (logLevel == TEST){
-			printf("TEST: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
-			printf("%s: %d\n", functionName, message);
+//			printf("TEST: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+//			printf("%s: %d\n", functionName, message);
 		}
 #endif
 
 #ifdef normal
 		//log if normal build config is selected
-		if (logLevel == NORMAL){
-			printf("NORMAL: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
-			printf("%s: %s %d\n", functionName, message, number);
+		if (logLevel == NORMAL)
+		{
+			char buf1[100];
+			char buf2[100];
+
+			sprintf(buf1, "\nNORMAL: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth%10);
+			sprintf(buf2, "%s: %s %d\n", functionName, message, number);
+			int j = 0;
+			while(buf1[j] != '\0'){
+				if(transmitReady() == success){
+					sendChara(buf1[j]);
+					j++;
+				}
+			}
+			j = 0;
+			while(buf2[j] != '\0'){
+				if(transmitReady() == success){
+					sendChara(buf2[j]);
+					j++;
+				}
+			}
+			j = 0;
+			sendChara('\n');
+//			printf("NORMAL: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+//			printf("%s: %s %d\n", functionName, message, number);
 		}
 #endif
 
