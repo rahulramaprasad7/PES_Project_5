@@ -4,6 +4,6 @@ Project_5_UART.c:43:19:initTxBuf	24	static
 Project_5_UART.c:63:19:initRxBuf	24	static
 Project_5_UART.c:83:6:endProgram	8	static
 Project_5_UART.c:95:5:main	8	static
-Project_5_UART.c:206:6:application	24	static
-Project_5_UART.c:273:6:printReport	416	static
-Project_5_UART.c:305:6:UART0_IRQHandler	24	static
+Project_5_UART.c:211:6:application	24	static
+Project_5_UART.c:278:6:printReport	416	static
+Project_5_UART.c:310:6:UART0_IRQHandler	24	static

@@ -3,6 +3,6 @@ loggerFunctions.c:29:6:log_disable	8	static
 loggerFunctions.c:35:6:log_status	8	static
 loggerFunctions.c:42:6:log_data	24	static
 loggerFunctions.c:57:6:log_message	256	static
-loggerFunctions.c:144:6:log_message_int	256	static
-loggerFunctions.c:229:6:log_string	16	static
-loggerFunctions.c:236:6:log_integer	16	static
+loggerFunctions.c:147:6:log_message_int	256	static
+loggerFunctions.c:232:6:log_string	16	static
+loggerFunctions.c:239:6:log_integer	16	static

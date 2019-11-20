@@ -73,7 +73,8 @@ void log_message(enum loggerMode logLevel, const char *functionName, char *messa
 
 
 #ifdef debug
-		if(logLevel == DEBUG)
+		//log if normal build config is selected
+		if (logLevel == DEBUG)
 		{
 			char buf1[100];
 			char buf2[100];
@@ -96,14 +97,16 @@ void log_message(enum loggerMode logLevel, const char *functionName, char *messa
 			}
 			j = 0;
 			sendChara('\n');
+			//			printf(“DEBUG: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+			//			printf("%s: %s\n", functionName, message);
 		}
 #endif
 
 #ifdef test
 		//log if test build config is selected
 		if (logLevel == TEST){
-//			printf("TEST: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
-//			printf("%s: %s\n", functionName, message);
+			//			printf("TEST: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+			//			printf("%s: %s\n", functionName, message);
 		}
 #endif
 
@@ -132,8 +135,8 @@ void log_message(enum loggerMode logLevel, const char *functionName, char *messa
 			}
 			j = 0;
 			sendChara('\n');
-//			printf("NORMAL: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
-//			printf("%s: %s\n", functionName, message);
+			//			printf("NORMAL: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+			//			printf("%s: %s\n", functionName, message);
 		}
 #endif
 
@@ -179,18 +182,18 @@ void log_message_int(enum loggerMode logLevel, const char *functionName, char* m
 				}
 			}
 			j = 0;
-//			sendChara('\n');
-//
-//			printf("DEBUG: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
-//			printf("%s: %s %d\n", functionName, message, number);
+			//			sendChara('\n');
+			//
+			//			printf("DEBUG: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+			//			printf("%s: %s %d\n", functionName, message, number);
 		}
 #endif
 
 #ifdef test
 		//log if test build config is selected
 		if (logLevel == TEST){
-//			printf("TEST: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
-//			printf("%s: %d\n", functionName, message);
+			//			printf("TEST: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+			//			printf("%s: %d\n", functionName, message);
 		}
 #endif
 
@@ -219,8 +222,8 @@ void log_message_int(enum loggerMode logLevel, const char *functionName, char* m
 			}
 			j = 0;
 			sendChara('\n');
-//			printf("NORMAL: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
-//			printf("%s: %s %d\n", functionName, message, number);
+			//			printf("NORMAL: %lu:%lu:%lu:%lu: ", hour, min, sec, tenth);
+			//			printf("%s: %s %d\n", functionName, message, number);
 		}
 #endif
 

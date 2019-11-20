@@ -47,6 +47,9 @@ void uartInit()
 
 enum bufErrorCode transmitReady()
 {
+	ledOff();
+	greenLED();
+
 #if interruptEnable == 0
 	while (!(UART0->S1 & UART0_S1_TDRE_MASK));		//Wait till Transmitter Data Register Empty flag is set
 	temp = success;
@@ -54,10 +57,10 @@ enum bufErrorCode transmitReady()
 
 #if interruptEnable == 1
 	UART0->C2 |= UART0_C2_TIE(1);
-//	printf("CHECK\n");
+	//	printf("CHECK\n");
 	if ((UART0->S1 & UART0_S1_TDRE_MASK) ){ // transmitter interrupt enabled
 		temp =  success;
-//		printf("CHECK SUCCESS\n");
+		//		printf("CHECK SUCCESS\n");
 	}
 	else
 		temp = failure;
@@ -73,9 +76,11 @@ void UART0_Transmit_Poll(uint8_t data)
 
 void transmitPoll(uint8_t data)
 {
+//	ledOff();
+//	greenLED();
 #if interruptEnable == 1
-//	if (transmitReady() == success)
-		UART0_Transmit_Poll(data);
+	//	if (transmitReady() == success)
+	UART0_Transmit_Poll(data);
 #endif
 
 #if interruptEnable == 0
@@ -86,6 +91,9 @@ void transmitPoll(uint8_t data)
 
 enum bufErrorCode receiveReady()
 {
+		ledOff();
+		blueLED();
+
 #if interruptEnable == 0
 	UART0->S1 |= UART0_S1_OR_MASK;
 	while (!(UART0->S1 & UART0_S1_RDRF_MASK));		//Wait till Receiver Data Register full flag is set
@@ -108,6 +116,8 @@ uint8_t UART0_Receive_Poll(void)
 
 uint8_t receivePoll()
 {
+//	ledOff();
+//	blueLED();
 #if interruptEnable == 1
 	if (receiveReady() == success)
 		transmitTemp = UART0_Receive_Poll();

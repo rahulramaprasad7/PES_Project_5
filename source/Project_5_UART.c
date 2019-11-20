@@ -94,6 +94,7 @@ void endProgram(void)
 
 int main(void)
 {
+
 	//	uint8_t c;
 
 	/* Init board hardware. */
@@ -101,10 +102,14 @@ int main(void)
 	BOARD_InitBootClocks();
 	BOARD_InitBootPeripherals();
 
+	Init_RGB_LEDs();
+
 	//Initialize the RGB LEDs
 	uartInit();
 	Init_RGB_LEDs();
+
 	ledOff();
+	blueLED();
 
 	//Initialize the systick timer to tick in 15 seconds
 	Init_SysTick();

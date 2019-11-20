@@ -1,11 +1,8 @@
-core_cm0plus.h:745:22:NVIC_EnableIRQ	16	static
-core_cm0plus.h:791:22:NVIC_ClearPendingIRQ	16	static
-core_cm0plus.h:804:22:NVIC_SetPriority	24	static
 uartIncludes.c:13:6:uartInit	8	static
 uartIncludes.c:48:19:transmitReady	8	static
-uartIncludes.c:68:6:UART0_Transmit_Poll	16	static
-uartIncludes.c:74:6:transmitPoll	16	static
-uartIncludes.c:87:19:receiveReady	8	static
-uartIncludes.c:104:9:UART0_Receive_Poll	8	static
-uartIncludes.c:109:9:receivePoll	8	static
-uartIncludes.c:123:6:echoPoll	8	static
+uartIncludes.c:71:6:UART0_Transmit_Poll	16	static
+uartIncludes.c:77:6:transmitPoll	16	static
+uartIncludes.c:92:19:receiveReady	8	static
+uartIncludes.c:112:9:UART0_Receive_Poll	8	static
+uartIncludes.c:117:9:receivePoll	8	static
+uartIncludes.c:133:6:echoPoll	8	static
