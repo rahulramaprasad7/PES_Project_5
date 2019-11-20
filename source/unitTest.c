@@ -6,7 +6,7 @@
  * in the uCUnit.h header
  *
  * @authors Rahul Ramaprasad, Prayag Milan Desai
- * @date November 1 2019
+ * @date November 18 2019
  * @verison 1.0
  */
 

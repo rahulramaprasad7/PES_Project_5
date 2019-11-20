@@ -177,21 +177,66 @@ enum bufErrorCode delAllElements(circularBuf *inBuf);
  * @brief Adjusts the position of elements of a circular buffer
  *
  * In case the circular buffer elements are wrapped around, and the buffer
- * is reallocated, the elements needs to be moved, ehich this function does
+ * is reallocated, the elements needs to be moved, which this function does
  *
  * @param The pointer to the circular buffer to be moved
  * @return The result of the adjustment (success/failure)
  */
 enum bufErrorCode adjustElements(circularBuf *inBuf);
 
+/*
+ * @brief Initialize the transmitter buffer
+ *
+ * Initializes the transmitter metadata structure and the
+ * buffer, by allocating memory to it. It also fills the metadata
+ * with appropriate values
+ *
+ * @param The length of the buffer to be allocated
+ * @return The result of the operation
+ */
 enum bufErrorCode initTxBuf(uint32_t inLength);
 
+/*
+ * @brief Initialize the receiver buffer
+ *
+ * Initializes the receiver metadata structure and the
+ * buffer, by allocating memory to it. It also fills the metadata
+ * with appropriate values
+ *
+ * @param The length of the buffer to be allocated
+ * @return The result of the operation
+ */
 void printReport(void);
 
+/*
+ * @brief runs the application that counts character
+ *
+ * This function contains the application that counts the number
+ * of character input, and prints a report of the character count
+ * when the character '.' is entered
+ *
+ * @return void
+ */
 void application(void);
 
+/*
+ * @brief Initializes the systick counter
+ *
+ * Initializes the systick counter to interrupt in 1/10 of
+ * a second
+ *
+ * @return void
+ */
 void Init_SysTick(void);
 
+/*
+ * @brief Terminate the program
+ *
+ * This function informs the user if the program is being
+ * terminated, turns the LED to red, and enters an infinite loop
+ *
+ * @return void
+ */
 void endProgram(void);
 
 #endif

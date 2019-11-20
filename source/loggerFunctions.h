@@ -117,7 +117,27 @@ void log_message(enum loggerMode logLevel, const char *functionName, char *messa
  */
 void log_message_int(enum loggerMode logLevel, const char *functionName, char* message, int number);
 
+
+/*
+ * @brief Send a string over UART
+ *
+ * This function inputs a pointer to a string, and transmits
+ * it over UART one character at a time till null is reached
+ *
+ * @param Pointer to the string
+ * @return void
+ */
 void sendString(char* in);
+
+/*
+ * @brief Send a character over UART
+ *
+ * This function inputs a character, and transmits
+ * it over UART
+ *
+ * @param The character to be sent
+ * @return void
+ */
 void sendChara(char in);
 
 #endif /* LOGGERFUNCTIONS_H_ */
