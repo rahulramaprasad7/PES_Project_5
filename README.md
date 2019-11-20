@@ -1,4 +1,4 @@
-# PES Project 4 Readme
+# PES Project 5 Readme
 
 
 **Team Members:** 
@@ -31,7 +31,7 @@ This folder contains source and header file for the boot process of the freedom 
 
 **Folder source:** 
 This folder contains source files which are common to all build configurations and are compiled based on the macro definitions. The application is made
-modular by defining multiple source files. The PES Project 4.c is defined here, which has the main() function and  is compiled 
+modular by defining multiple source files. The Project_5_UART.c is defined here, which has the main() function and  is compiled 
 for all targets.
 
 **Folder Debug:**
@@ -53,7 +53,7 @@ All the code in this repository should be executed using the following command:
 `make -r -j3 "target"`  
 Where, "target" has three choices
 - *Debug*: This target builds the output for the KL25Z. The output LEDs will change according to the states and the messages will be logged.   
-- *Normal*: This target builds the output for the KL25Z. The output LEDs will change according to the state changes, and a log output is displayed (The temperature read, and the average calculated, as required).
+- *Normal*: This target builds the output for the KL25Z. The output LEDs will change according to the state changes, and a log output is displayed.
 - *Test*: This target builds the output for the PC. This target logs messages after executing uCUnit test cases. 
 
    
@@ -67,8 +67,10 @@ This project has the following requirements, that are fulfilled using the aforem
 
 
 **Issues faced**  
-Tried the interrupt based approach for I2C communication with the temperature sensor, ran into some errors. So, switched to polling approach to read the temperature. Ran into errors while reading the THIGH register and realised that we had not put a WAIT signal after writing to TLOW and before writing to THIGH. 
+The interrupt kept getting fired in the interrupt mode. To solve this issue, the transmit interrupt was enable donly when something had to be sent over UART from KL25Z to PC and the transmit interrupt was disabled at the end of ISR. The application was giving hard faults while testing the circular buffer functionality, by using printf to print the pointer address. This was because the address was unaligned and the printf statement was trying to access an unaligned memory location.  
 
+**Printing Buffer Summary**  
+The program works in application or echo mode and in each of these modes it is further split into interrupt or polling mode. The print summary function runs only in the application mode. The "." character is used to trigger the print sumary function, so every time the user types the "." character, the buffer contents along with the frequency of each character in the buffer is printed.  
 
 
 
