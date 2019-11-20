@@ -43,19 +43,16 @@ void redLED()
 {
 	ledOff();
 	PTB->PCOR = MASK(RED_LED_POS); //Switch on RED
-//	log_message(DEBUG, __func__, "Turning on Red LED");
 }
 
 void greenLED()
 {
 	ledOff();
 	PTB->PCOR = MASK(GREEN_LED_POS); //Switch on GREEN
-//	log_message(DEBUG, __func__, "Turning on Green LED");
 }
 
 void blueLED()
 {
 	ledOff();
 	PTD->PCOR = MASK(BLUE_LED_POS); //Switch on BLUE
-//	log_message(DEBUG, __func__, "Turning on Blue LED");
 }

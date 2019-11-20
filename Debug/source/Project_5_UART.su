@@ -1,9 +1,2 @@
-Project_5_UART.c:39:6:sendChara	16	static
-Project_5_UART.c:45:6:sendString	24	static
-Project_5_UART.c:56:19:initTxBuf	24	static
-Project_5_UART.c:86:19:initRxBuf	24	static
-Project_5_UART.c:114:6:endProgram	8	static
-Project_5_UART.c:129:5:main	24	static
-Project_5_UART.c:230:6:application	24	static
-Project_5_UART.c:303:6:printReport	424	static
-Project_5_UART.c:339:6:UART0_IRQHandler	24	static
+Project_5_UART.c:38:5:main	24	static
+Project_5_UART.c:138:6:UART0_IRQHandler	24	static

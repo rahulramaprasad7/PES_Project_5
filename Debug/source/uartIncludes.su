@@ -9,3 +9,5 @@ uartIncludes.c:99:19:receiveReady	8	static
 uartIncludes.c:119:9:UART0_Receive_Poll	8	static
 uartIncludes.c:124:9:receivePoll	8	static
 uartIncludes.c:139:6:echoPoll	8	static
+uartIncludes.c:146:6:sendChara	16	static
+uartIncludes.c:152:6:sendString	24	static

@@ -13,3 +13,8 @@ circularBuffer.c:207:19:verifyBufPointer	16	static
 circularBuffer.c:221:19:initBuffer	16	static
 circularBuffer.c:246:6:Init_SysTick	8	static
 circularBuffer.c:260:6:SysTick_Handler	8	static
+circularBuffer.c:267:19:initTxBuf	24	static
+circularBuffer.c:297:19:initRxBuf	24	static
+circularBuffer.c:325:6:endProgram	8	static
+circularBuffer.c:342:6:application	24	static
+circularBuffer.c:415:6:printReport	424	static

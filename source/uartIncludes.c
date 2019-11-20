@@ -141,3 +141,20 @@ void echoPoll()
 	ch = receivePoll();
 	transmitPoll(ch);
 }
+
+//Send a single character
+void sendChara(char in)
+{
+	transmitPoll((uint8_t)in);
+}
+
+//Send a string
+void sendString(char* in)
+{
+	int i = 0;
+	//send a string till null reached
+	while (*in){
+		sendChara(*in++);
+		i++;
+	}
+}

@@ -22,6 +22,8 @@
 #include <string.h>
 #include "ledControl.h"
 #include "loggerFunctions.h"
+#include "uartIncludes.h"
+#include "uCUnit.h"
 #include "MKL25Z4.h"
 
 #define START_CRITICAL __disable_irq()
@@ -49,10 +51,14 @@ extern uint8_t inBuffer[20];
 extern circularBuf *txBuf;
 //receive queue circular buffer
 extern circularBuf *rxBuf;
-extern uint8_t *charArray1;
+//Tenth of a second, for timekeeping
 extern unsigned long tenth;
+//Transmission buffer ready to send
 extern volatile bool txBufferReady;
+//Holds the chaarcter received
 extern volatile uint8_t c;
+//If the character count report is ready
+extern volatile bool reportPrint;
 
 /*
  * @brief check if the buffer is full
@@ -205,6 +211,17 @@ enum bufErrorCode initTxBuf(uint32_t inLength);
  *
  * @param The length of the buffer to be allocated
  * @return The result of the operation
+ */
+enum bufErrorCode initRxBuf(uint32_t inLength);
+
+/*
+ * @brief Print the character count report
+ *
+ * This function enters the character count information
+ * in a buffer, which is then sent over the UART over a
+ * period of time
+ *
+ * @return void
  */
 void printReport(void);
 

@@ -11,7 +11,7 @@ Archive member included to satisfy reference by file (symbol)
 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(memcpy.o)
                               ./drivers/fsl_flash.o (memcpy)
 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(memset.o)
-                              ./source/Project_5_UART.o (memset)
+                              ./source/circularBuffer.o (memset)
 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_deferredlazyseek.o)
                               /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(_cr_assert.o) (__flsbuf)
 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_fflush.o)
@@ -19,7 +19,7 @@ Archive member included to satisfy reference by file (symbol)
 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_writebuf.o)
                               /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_deferredlazyseek.o) (_Cwritebuf)
 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(alloc.o)
-                              ./source/Project_5_UART.o (malloc)
+                              ./source/circularBuffer.o (malloc)
 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fputs.o)
                               /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(_cr_assert.o) (fputs)
 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fseek.o)
@@ -29,7 +29,7 @@ Archive member included to satisfy reference by file (symbol)
 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(initio.o)
                               /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(_cr__main.o) (_initio)
 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(printf.o)
-                              ./source/Project_5_UART.o (_sprintf)
+                              ./source/circularBuffer.o (_sprintf)
 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(setvbuf.o)
                               /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(initio.o) (setvbuf)
 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(strlen.o)
@@ -295,6 +295,18 @@ Discarded input sections
  .group         0x0000000000000000        0xc ./source/circularBuffer.o
  .group         0x0000000000000000        0xc ./source/circularBuffer.o
  .group         0x0000000000000000        0xc ./source/circularBuffer.o
+ .group         0x0000000000000000        0xc ./source/circularBuffer.o
+ .group         0x0000000000000000        0xc ./source/circularBuffer.o
+ .group         0x0000000000000000        0xc ./source/circularBuffer.o
+ .group         0x0000000000000000        0xc ./source/circularBuffer.o
+ .group         0x0000000000000000        0xc ./source/circularBuffer.o
+ .group         0x0000000000000000        0xc ./source/circularBuffer.o
+ .group         0x0000000000000000        0xc ./source/circularBuffer.o
+ .group         0x0000000000000000        0xc ./source/circularBuffer.o
+ .group         0x0000000000000000        0xc ./source/circularBuffer.o
+ .group         0x0000000000000000        0xc ./source/circularBuffer.o
+ .group         0x0000000000000000        0xc ./source/circularBuffer.o
+ .group         0x0000000000000000        0xc ./source/circularBuffer.o
  .text          0x0000000000000000        0x0 ./source/circularBuffer.o
  .data          0x0000000000000000        0x0 ./source/circularBuffer.o
  .bss           0x0000000000000000        0x0 ./source/circularBuffer.o
@@ -324,6 +336,18 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x22 ./source/circularBuffer.o
  .debug_macro   0x0000000000000000       0x1c ./source/circularBuffer.o
  .debug_macro   0x0000000000000000       0x16 ./source/circularBuffer.o
+ .debug_macro   0x0000000000000000       0x10 ./source/circularBuffer.o
+ .debug_macro   0x0000000000000000     0x1352 ./source/circularBuffer.o
+ .debug_macro   0x0000000000000000       0x3a ./source/circularBuffer.o
+ .debug_macro   0x0000000000000000       0xf4 ./source/circularBuffer.o
+ .debug_macro   0x0000000000000000       0x35 ./source/circularBuffer.o
+ .debug_macro   0x0000000000000000       0x16 ./source/circularBuffer.o
+ .debug_macro   0x0000000000000000       0x10 ./source/circularBuffer.o
+ .debug_macro   0x0000000000000000      0x112 ./source/circularBuffer.o
+ .debug_macro   0x0000000000000000       0x34 ./source/circularBuffer.o
+ .debug_macro   0x0000000000000000       0x10 ./source/circularBuffer.o
+ .debug_macro   0x0000000000000000      0x10a ./source/circularBuffer.o
+ .debug_macro   0x0000000000000000       0x16 ./source/circularBuffer.o
  .group         0x0000000000000000        0xc ./source/ledControl.o
  .group         0x0000000000000000        0xc ./source/ledControl.o
  .group         0x0000000000000000        0xc ./source/ledControl.o
@@ -352,6 +376,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x22 ./source/ledControl.o
  .debug_macro   0x0000000000000000       0x28 ./source/ledControl.o
  .debug_macro   0x0000000000000000       0x1c ./source/ledControl.o
+ .group         0x0000000000000000        0xc ./source/loggerFunctions.o
  .group         0x0000000000000000        0xc ./source/loggerFunctions.o
  .group         0x0000000000000000        0xc ./source/loggerFunctions.o
  .group         0x0000000000000000        0xc ./source/loggerFunctions.o
@@ -410,7 +435,6 @@ Discarded input sections
  .debug_macro   0x0000000000000000     0x51e2 ./source/loggerFunctions.o
  .debug_macro   0x0000000000000000       0x1c ./source/loggerFunctions.o
  .debug_macro   0x0000000000000000       0x16 ./source/loggerFunctions.o
- .debug_macro   0x0000000000000000       0x16 ./source/loggerFunctions.o
  .debug_macro   0x0000000000000000       0x10 ./source/loggerFunctions.o
  .debug_macro   0x0000000000000000     0x1352 ./source/loggerFunctions.o
  .debug_macro   0x0000000000000000       0x3a ./source/loggerFunctions.o
@@ -421,6 +445,8 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x112 ./source/loggerFunctions.o
  .debug_macro   0x0000000000000000       0x34 ./source/loggerFunctions.o
  .debug_macro   0x0000000000000000       0x10 ./source/loggerFunctions.o
+ .debug_macro   0x0000000000000000      0x10a ./source/loggerFunctions.o
+ .debug_macro   0x0000000000000000       0x16 ./source/loggerFunctions.o
  .group         0x0000000000000000        0xc ./source/mtb.o
  .group         0x0000000000000000        0xc ./source/mtb.o
  .group         0x0000000000000000        0xc ./source/mtb.o
@@ -433,6 +459,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 ./source/semihost_hardfault.o
  .bss           0x0000000000000000        0x0 ./source/semihost_hardfault.o
  .debug_macro   0x0000000000000000      0xaa8 ./source/semihost_hardfault.o
+ .group         0x0000000000000000        0xc ./source/uartIncludes.o
  .group         0x0000000000000000        0xc ./source/uartIncludes.o
  .group         0x0000000000000000        0xc ./source/uartIncludes.o
  .group         0x0000000000000000        0xc ./source/uartIncludes.o
@@ -493,6 +520,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x34 ./source/uartIncludes.o
  .debug_macro   0x0000000000000000       0x22 ./source/uartIncludes.o
  .debug_macro   0x0000000000000000       0x1c ./source/uartIncludes.o
+ .debug_macro   0x0000000000000000      0x10a ./source/uartIncludes.o
  .debug_macro   0x0000000000000000       0x16 ./source/uartIncludes.o
  .debug_macro   0x0000000000000000       0x10 ./source/uartIncludes.o
  .group         0x0000000000000000        0xc ./source/unitTest.o
@@ -559,7 +587,6 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c ./source/unitTest.o
  .debug_macro   0x0000000000000000       0xd2 ./source/unitTest.o
  .debug_macro   0x0000000000000000       0x16 ./source/unitTest.o
- .debug_macro   0x0000000000000000       0x16 ./source/unitTest.o
  .debug_macro   0x0000000000000000       0x10 ./source/unitTest.o
  .debug_macro   0x0000000000000000     0x1352 ./source/unitTest.o
  .debug_macro   0x0000000000000000       0x3a ./source/unitTest.o
@@ -570,6 +597,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x112 ./source/unitTest.o
  .debug_macro   0x0000000000000000       0x34 ./source/unitTest.o
  .debug_macro   0x0000000000000000       0x10 ./source/unitTest.o
+ .debug_macro   0x0000000000000000       0x16 ./source/unitTest.o
  .group         0x0000000000000000        0xc ./drivers/fsl_clock.o
  .group         0x0000000000000000        0xc ./drivers/fsl_clock.o
  .group         0x0000000000000000        0xc ./drivers/fsl_clock.o
@@ -1759,34 +1787,34 @@ END GROUP
                 0x0000000000000410                PROVIDE (__FLASH_CONFIG_END__ = .)
                 0x0000000000000001                ASSERT (! ((__FLASH_CONFIG_START__ == __FLASH_CONFIG_END__)), Linker Flash Config Support Enabled, but no .FlashConfig section provided within application)
  *(SORT_BY_ALIGNMENT(.text*))
- .text.initTxBuf
-                0x0000000000000410       0x7c ./source/Project_5_UART.o
-                0x0000000000000410                initTxBuf
- .text.initRxBuf
-                0x000000000000048c       0x7c ./source/Project_5_UART.o
-                0x000000000000048c                initRxBuf
- .text.endProgram
-                0x0000000000000508       0x3c ./source/Project_5_UART.o
-                0x0000000000000508                endProgram
- .text.main     0x0000000000000544      0x118 ./source/Project_5_UART.o
-                0x0000000000000544                main
- .text.application
-                0x000000000000065c      0x1a4 ./source/Project_5_UART.o
-                0x000000000000065c                application
- .text.printReport
-                0x0000000000000800      0x174 ./source/Project_5_UART.o
-                0x0000000000000800                printReport
+ .text.main     0x0000000000000410      0x118 ./source/Project_5_UART.o
+                0x0000000000000410                main
  .text.UART0_IRQHandler
-                0x0000000000000974       0x7c ./source/Project_5_UART.o
-                0x0000000000000974                UART0_IRQHandler
+                0x0000000000000528       0x7c ./source/Project_5_UART.o
+                0x0000000000000528                UART0_IRQHandler
  .text.NVIC_SetPriority
-                0x00000000000009f0       0xdc ./source/circularBuffer.o
+                0x00000000000005a4       0xdc ./source/circularBuffer.o
  .text.Init_SysTick
-                0x0000000000000acc       0x30 ./source/circularBuffer.o
-                0x0000000000000acc                Init_SysTick
+                0x0000000000000680       0x30 ./source/circularBuffer.o
+                0x0000000000000680                Init_SysTick
  .text.SysTick_Handler
-                0x0000000000000afc       0x18 ./source/circularBuffer.o
-                0x0000000000000afc                SysTick_Handler
+                0x00000000000006b0       0x18 ./source/circularBuffer.o
+                0x00000000000006b0                SysTick_Handler
+ .text.initTxBuf
+                0x00000000000006c8       0x7c ./source/circularBuffer.o
+                0x00000000000006c8                initTxBuf
+ .text.initRxBuf
+                0x0000000000000744       0x7c ./source/circularBuffer.o
+                0x0000000000000744                initRxBuf
+ .text.endProgram
+                0x00000000000007c0       0x3c ./source/circularBuffer.o
+                0x00000000000007c0                endProgram
+ .text.application
+                0x00000000000007fc      0x1a4 ./source/circularBuffer.o
+                0x00000000000007fc                application
+ .text.printReport
+                0x00000000000009a0      0x174 ./source/circularBuffer.o
+                0x00000000000009a0                printReport
  .text.Init_RGB_LEDs
                 0x0000000000000b14       0xa0 ./source/ledControl.o
                 0x0000000000000b14                Init_RGB_LEDs
@@ -1931,36 +1959,36 @@ END GROUP
  .text._do_fflush
                 0x0000000000002c20       0x44 /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_do_fflush.o)
                 0x0000000000002c20                _do_fflush
- .text.sendChara
-                0x0000000000002c64       0x1e ./source/Project_5_UART.o
-                0x0000000000002c64                sendChara
- .text.sendString
-                0x0000000000002c82       0x32 ./source/Project_5_UART.o
-                0x0000000000002c82                sendString
  .text.adjustElements
-                0x0000000000002cb4       0x8c ./source/circularBuffer.o
-                0x0000000000002cb4                adjustElements
+                0x0000000000002c64       0x8c ./source/circularBuffer.o
+                0x0000000000002c64                adjustElements
  .text.zeroFullBuffer
-                0x0000000000002d40       0x32 ./source/circularBuffer.o
-                0x0000000000002d40                zeroFullBuffer
+                0x0000000000002cf0       0x32 ./source/circularBuffer.o
+                0x0000000000002cf0                zeroFullBuffer
  .text.checkFull
-                0x0000000000002d72       0x38 ./source/circularBuffer.o
-                0x0000000000002d72                checkFull
+                0x0000000000002d22       0x38 ./source/circularBuffer.o
+                0x0000000000002d22                checkFull
  .text.checkEmpty
-                0x0000000000002daa       0x34 ./source/circularBuffer.o
-                0x0000000000002daa                checkEmpty
+                0x0000000000002d5a       0x34 ./source/circularBuffer.o
+                0x0000000000002d5a                checkEmpty
  .text.addElement
-                0x0000000000002dde       0x64 ./source/circularBuffer.o
-                0x0000000000002dde                addElement
+                0x0000000000002d8e       0x64 ./source/circularBuffer.o
+                0x0000000000002d8e                addElement
  .text.delElement
-                0x0000000000002e42       0x78 ./source/circularBuffer.o
-                0x0000000000002e42                delElement
+                0x0000000000002df2       0x78 ./source/circularBuffer.o
+                0x0000000000002df2                delElement
  .text.emptyBuffer
-                0x0000000000002eba       0x46 ./source/circularBuffer.o
-                0x0000000000002eba                emptyBuffer
+                0x0000000000002e6a       0x46 ./source/circularBuffer.o
+                0x0000000000002e6a                emptyBuffer
  .text.transmitPoll
-                0x0000000000002f00       0x1e ./source/uartIncludes.o
-                0x0000000000002f00                transmitPoll
+                0x0000000000002eb0       0x1e ./source/uartIncludes.o
+                0x0000000000002eb0                transmitPoll
+ .text.sendChara
+                0x0000000000002ece       0x1e ./source/uartIncludes.o
+                0x0000000000002ece                sendChara
+ .text.sendString
+                0x0000000000002eec       0x32 ./source/uartIncludes.o
+                0x0000000000002eec                sendString
  .text.OSC_SetExtRefClkConfig
                 0x0000000000002f1e       0x3e ./drivers/fsl_clock.o
  .text.OSC_SetCapLoad
@@ -2037,16 +2065,18 @@ END GROUP
                 0x00000000000031d2                __sys_write
  *(SORT_BY_ALIGNMENT(.rodata) SORT_BY_ALIGNMENT(.rodata.*) SORT_BY_ALIGNMENT(.constdata) SORT_BY_ALIGNMENT(.constdata.*))
  *fill*         0x00000000000031de        0x2 ff
- .rodata        0x00000000000031e0      0x159 ./source/Project_5_UART.o
- *fill*         0x0000000000003339        0x3 ff
- .rodata.__func__.5601
-                0x000000000000333c        0xb ./source/Project_5_UART.o
- *fill*         0x0000000000003347        0x1 ff
- .rodata.__func__.5606
-                0x0000000000003348        0x5 ./source/Project_5_UART.o
- *fill*         0x000000000000334d        0x3 ff
- .rodata.__func__.5612
-                0x0000000000003350        0xc ./source/Project_5_UART.o
+ .rodata        0x00000000000031e0       0x75 ./source/Project_5_UART.o
+ *fill*         0x0000000000003255        0x3 ff
+ .rodata.__func__.5587
+                0x0000000000003258        0x5 ./source/Project_5_UART.o
+ *fill*         0x000000000000325d        0x3 ff
+ .rodata        0x0000000000003260       0xe1 ./source/circularBuffer.o
+ *fill*         0x0000000000003341        0x3 ff
+ .rodata.__func__.5645
+                0x0000000000003344        0xb ./source/circularBuffer.o
+ *fill*         0x000000000000334f        0x1 ff
+ .rodata.__func__.5650
+                0x0000000000003350        0xc ./source/circularBuffer.o
  .rodata        0x000000000000335c       0x44 ./source/loggerFunctions.o
  .rodata        0x00000000000033a0      0x11d ./drivers/fsl_clock.o
  *fill*         0x00000000000034bd        0x3 ff
@@ -2222,59 +2252,59 @@ END GROUP
                 0x0000000000003550                _image_size = (_image_end - _image_start)
 OUTPUT(PES_Project_5.axf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0x98cf
+.debug_info     0x0000000000000000     0x9ee9
  .debug_info    0x0000000000000000      0x4f9 ./startup/startup_mkl25z4.o
- .debug_info    0x00000000000004f9      0xbca ./source/Project_5_UART.o
- .debug_info    0x00000000000010c3      0x96b ./source/circularBuffer.o
- .debug_info    0x0000000000001a2e      0x42e ./source/ledControl.o
- .debug_info    0x0000000000001e5c      0xa38 ./source/loggerFunctions.o
- .debug_info    0x0000000000002894       0x53 ./source/mtb.o
- .debug_info    0x00000000000028e7       0x3c ./source/semihost_hardfault.o
- .debug_info    0x0000000000002923      0xeef ./source/uartIncludes.o
- .debug_info    0x0000000000003812      0x89b ./source/unitTest.o
- .debug_info    0x00000000000040ad     0x1a97 ./drivers/fsl_clock.o
- .debug_info    0x0000000000005b44     0x1469 ./drivers/fsl_lpsci.o
- .debug_info    0x0000000000006fad     0x140a ./drivers/fsl_uart.o
- .debug_info    0x00000000000083b7      0xb00 ./board/clock_config.o
- .debug_info    0x0000000000008eb7       0x3c ./board/peripherals.o
- .debug_info    0x0000000000008ef3      0x5a3 ./board/pin_mux.o
- .debug_info    0x0000000000009496      0x439 ./CMSIS/system_MKL25Z4.o
+ .debug_info    0x00000000000004f9      0x9b7 ./source/Project_5_UART.o
+ .debug_info    0x0000000000000eb0     0x103c ./source/circularBuffer.o
+ .debug_info    0x0000000000001eec      0x42e ./source/ledControl.o
+ .debug_info    0x000000000000231a      0xab4 ./source/loggerFunctions.o
+ .debug_info    0x0000000000002dce       0x53 ./source/mtb.o
+ .debug_info    0x0000000000002e21       0x3c ./source/semihost_hardfault.o
+ .debug_info    0x0000000000002e5d      0xfcf ./source/uartIncludes.o
+ .debug_info    0x0000000000003e2c      0x89b ./source/unitTest.o
+ .debug_info    0x00000000000046c7     0x1a97 ./drivers/fsl_clock.o
+ .debug_info    0x000000000000615e     0x1469 ./drivers/fsl_lpsci.o
+ .debug_info    0x00000000000075c7     0x140a ./drivers/fsl_uart.o
+ .debug_info    0x00000000000089d1      0xb00 ./board/clock_config.o
+ .debug_info    0x00000000000094d1       0x3c ./board/peripherals.o
+ .debug_info    0x000000000000950d      0x5a3 ./board/pin_mux.o
+ .debug_info    0x0000000000009ab0      0x439 ./CMSIS/system_MKL25Z4.o
 
-.debug_abbrev   0x0000000000000000     0x1d36
+.debug_abbrev   0x0000000000000000     0x1d65
  .debug_abbrev  0x0000000000000000      0x17e ./startup/startup_mkl25z4.o
- .debug_abbrev  0x000000000000017e      0x277 ./source/Project_5_UART.o
- .debug_abbrev  0x00000000000003f5      0x297 ./source/circularBuffer.o
- .debug_abbrev  0x000000000000068c      0x14a ./source/ledControl.o
- .debug_abbrev  0x00000000000007d6      0x1de ./source/loggerFunctions.o
- .debug_abbrev  0x00000000000009b4       0x46 ./source/mtb.o
- .debug_abbrev  0x00000000000009fa       0x31 ./source/semihost_hardfault.o
- .debug_abbrev  0x0000000000000a2b      0x293 ./source/uartIncludes.o
- .debug_abbrev  0x0000000000000cbe      0x17b ./source/unitTest.o
- .debug_abbrev  0x0000000000000e39      0x36f ./drivers/fsl_clock.o
- .debug_abbrev  0x00000000000011a8      0x309 ./drivers/fsl_lpsci.o
- .debug_abbrev  0x00000000000014b1      0x323 ./drivers/fsl_uart.o
- .debug_abbrev  0x00000000000017d4      0x220 ./board/clock_config.o
- .debug_abbrev  0x00000000000019f4       0x31 ./board/peripherals.o
- .debug_abbrev  0x0000000000001a25      0x1bb ./board/pin_mux.o
- .debug_abbrev  0x0000000000001be0      0x156 ./CMSIS/system_MKL25Z4.o
+ .debug_abbrev  0x000000000000017e      0x1e4 ./source/Project_5_UART.o
+ .debug_abbrev  0x0000000000000362      0x337 ./source/circularBuffer.o
+ .debug_abbrev  0x0000000000000699      0x14a ./source/ledControl.o
+ .debug_abbrev  0x00000000000007e3      0x1de ./source/loggerFunctions.o
+ .debug_abbrev  0x00000000000009c1       0x46 ./source/mtb.o
+ .debug_abbrev  0x0000000000000a07       0x31 ./source/semihost_hardfault.o
+ .debug_abbrev  0x0000000000000a38      0x2b5 ./source/uartIncludes.o
+ .debug_abbrev  0x0000000000000ced      0x17b ./source/unitTest.o
+ .debug_abbrev  0x0000000000000e68      0x36f ./drivers/fsl_clock.o
+ .debug_abbrev  0x00000000000011d7      0x309 ./drivers/fsl_lpsci.o
+ .debug_abbrev  0x00000000000014e0      0x323 ./drivers/fsl_uart.o
+ .debug_abbrev  0x0000000000001803      0x220 ./board/clock_config.o
+ .debug_abbrev  0x0000000000001a23       0x31 ./board/peripherals.o
+ .debug_abbrev  0x0000000000001a54      0x1bb ./board/pin_mux.o
+ .debug_abbrev  0x0000000000001c0f      0x156 ./CMSIS/system_MKL25Z4.o
 
 .debug_aranges  0x0000000000000000      0x8a8
  .debug_aranges
                 0x0000000000000000      0x160 ./startup/startup_mkl25z4.o
  .debug_aranges
-                0x0000000000000160       0x60 ./source/Project_5_UART.o
+                0x0000000000000160       0x28 ./source/Project_5_UART.o
  .debug_aranges
-                0x00000000000001c0       0x90 ./source/circularBuffer.o
+                0x0000000000000188       0xb8 ./source/circularBuffer.o
  .debug_aranges
-                0x0000000000000250       0x40 ./source/ledControl.o
+                0x0000000000000240       0x40 ./source/ledControl.o
  .debug_aranges
-                0x0000000000000290       0x58 ./source/loggerFunctions.o
+                0x0000000000000280       0x58 ./source/loggerFunctions.o
  .debug_aranges
-                0x00000000000002e8       0x18 ./source/mtb.o
+                0x00000000000002d8       0x18 ./source/mtb.o
  .debug_aranges
-                0x0000000000000300       0x20 ./source/semihost_hardfault.o
+                0x00000000000002f0       0x20 ./source/semihost_hardfault.o
  .debug_aranges
-                0x0000000000000320       0x70 ./source/uartIncludes.o
+                0x0000000000000310       0x80 ./source/uartIncludes.o
  .debug_aranges
                 0x0000000000000390       0x20 ./source/unitTest.o
  .debug_aranges
@@ -2294,12 +2324,12 @@ OUTPUT(PES_Project_5.axf elf32-littlearm)
 
 .debug_ranges   0x0000000000000000      0x7a0
  .debug_ranges  0x0000000000000000      0x150 ./startup/startup_mkl25z4.o
- .debug_ranges  0x0000000000000150       0x50 ./source/Project_5_UART.o
- .debug_ranges  0x00000000000001a0       0x80 ./source/circularBuffer.o
- .debug_ranges  0x0000000000000220       0x30 ./source/ledControl.o
- .debug_ranges  0x0000000000000250       0x48 ./source/loggerFunctions.o
- .debug_ranges  0x0000000000000298       0x10 ./source/semihost_hardfault.o
- .debug_ranges  0x00000000000002a8       0x60 ./source/uartIncludes.o
+ .debug_ranges  0x0000000000000150       0x18 ./source/Project_5_UART.o
+ .debug_ranges  0x0000000000000168       0xa8 ./source/circularBuffer.o
+ .debug_ranges  0x0000000000000210       0x30 ./source/ledControl.o
+ .debug_ranges  0x0000000000000240       0x48 ./source/loggerFunctions.o
+ .debug_ranges  0x0000000000000288       0x10 ./source/semihost_hardfault.o
+ .debug_ranges  0x0000000000000298       0x70 ./source/uartIncludes.o
  .debug_ranges  0x0000000000000308       0x10 ./source/unitTest.o
  .debug_ranges  0x0000000000000318      0x1c8 ./drivers/fsl_clock.o
  .debug_ranges  0x00000000000004e0      0x108 ./drivers/fsl_lpsci.o
@@ -2309,90 +2339,90 @@ OUTPUT(PES_Project_5.axf elf32-littlearm)
  .debug_ranges  0x0000000000000760       0x28 ./board/pin_mux.o
  .debug_ranges  0x0000000000000788       0x18 ./CMSIS/system_MKL25Z4.o
 
-.debug_macro    0x0000000000000000     0x1477
+.debug_macro    0x0000000000000000     0x1574
  .debug_macro   0x0000000000000000       0x23 ./startup/startup_mkl25z4.o
- .debug_macro   0x0000000000000023      0x1ac ./source/Project_5_UART.o
- .debug_macro   0x00000000000001cf       0xd8 ./source/Project_5_UART.o
- .debug_macro   0x00000000000002a7       0x16 ./source/Project_5_UART.o
- .debug_macro   0x00000000000002bd       0x10 ./source/Project_5_UART.o
- .debug_macro   0x00000000000002cd      0x112 ./source/Project_5_UART.o
- .debug_macro   0x00000000000003df       0x34 ./source/Project_5_UART.o
- .debug_macro   0x0000000000000413       0x22 ./source/Project_5_UART.o
- .debug_macro   0x0000000000000435       0x1c ./source/Project_5_UART.o
- .debug_macro   0x0000000000000451       0x16 ./source/Project_5_UART.o
- .debug_macro   0x0000000000000467       0x10 ./source/Project_5_UART.o
- .debug_macro   0x0000000000000477      0x10a ./source/Project_5_UART.o
- .debug_macro   0x0000000000000581       0xeb ./source/circularBuffer.o
- .debug_macro   0x000000000000066c       0xbd ./source/ledControl.o
- .debug_macro   0x0000000000000729       0x34 ./source/ledControl.o
- .debug_macro   0x000000000000075d      0x189 ./source/loggerFunctions.o
- .debug_macro   0x00000000000008e6       0x2f ./source/mtb.o
- .debug_macro   0x0000000000000915       0x82 ./source/mtb.o
- .debug_macro   0x0000000000000997       0x10 ./source/mtb.o
- .debug_macro   0x00000000000009a7       0x11 ./source/semihost_hardfault.o
- .debug_macro   0x00000000000009b8      0x189 ./source/uartIncludes.o
- .debug_macro   0x0000000000000b41      0x1ac ./source/unitTest.o
- .debug_macro   0x0000000000000ced      0x111 ./source/unitTest.o
- .debug_macro   0x0000000000000dfe      0x196 ./drivers/fsl_clock.o
- .debug_macro   0x0000000000000f94       0x1c ./drivers/fsl_clock.o
- .debug_macro   0x0000000000000fb0       0xec ./drivers/fsl_lpsci.o
- .debug_macro   0x000000000000109c       0xf2 ./drivers/fsl_uart.o
- .debug_macro   0x000000000000118e      0x123 ./board/clock_config.o
- .debug_macro   0x00000000000012b1       0x1b ./board/peripherals.o
- .debug_macro   0x00000000000012cc      0x107 ./board/pin_mux.o
- .debug_macro   0x00000000000013d3       0x10 ./board/pin_mux.o
- .debug_macro   0x00000000000013e3       0x94 ./CMSIS/system_MKL25Z4.o
+ .debug_macro   0x0000000000000023      0x1b0 ./source/Project_5_UART.o
+ .debug_macro   0x00000000000001d3       0xd8 ./source/Project_5_UART.o
+ .debug_macro   0x00000000000002ab       0x16 ./source/Project_5_UART.o
+ .debug_macro   0x00000000000002c1       0x10 ./source/Project_5_UART.o
+ .debug_macro   0x00000000000002d1      0x112 ./source/Project_5_UART.o
+ .debug_macro   0x00000000000003e3       0x34 ./source/Project_5_UART.o
+ .debug_macro   0x0000000000000417       0x22 ./source/Project_5_UART.o
+ .debug_macro   0x0000000000000439       0x1c ./source/Project_5_UART.o
+ .debug_macro   0x0000000000000455      0x10a ./source/Project_5_UART.o
+ .debug_macro   0x000000000000055f       0x16 ./source/Project_5_UART.o
+ .debug_macro   0x0000000000000575       0x10 ./source/Project_5_UART.o
+ .debug_macro   0x0000000000000585      0x1a6 ./source/circularBuffer.o
+ .debug_macro   0x000000000000072b       0xbd ./source/ledControl.o
+ .debug_macro   0x00000000000007e8       0x34 ./source/ledControl.o
+ .debug_macro   0x000000000000081c      0x1a6 ./source/loggerFunctions.o
+ .debug_macro   0x00000000000009c2       0x2f ./source/mtb.o
+ .debug_macro   0x00000000000009f1       0x82 ./source/mtb.o
+ .debug_macro   0x0000000000000a73       0x10 ./source/mtb.o
+ .debug_macro   0x0000000000000a83       0x11 ./source/semihost_hardfault.o
+ .debug_macro   0x0000000000000a94      0x1a6 ./source/uartIncludes.o
+ .debug_macro   0x0000000000000c3a      0x1b0 ./source/unitTest.o
+ .debug_macro   0x0000000000000dea      0x111 ./source/unitTest.o
+ .debug_macro   0x0000000000000efb      0x196 ./drivers/fsl_clock.o
+ .debug_macro   0x0000000000001091       0x1c ./drivers/fsl_clock.o
+ .debug_macro   0x00000000000010ad       0xec ./drivers/fsl_lpsci.o
+ .debug_macro   0x0000000000001199       0xf2 ./drivers/fsl_uart.o
+ .debug_macro   0x000000000000128b      0x123 ./board/clock_config.o
+ .debug_macro   0x00000000000013ae       0x1b ./board/peripherals.o
+ .debug_macro   0x00000000000013c9      0x107 ./board/pin_mux.o
+ .debug_macro   0x00000000000014d0       0x10 ./board/pin_mux.o
+ .debug_macro   0x00000000000014e0       0x94 ./CMSIS/system_MKL25Z4.o
 
-.debug_line     0x0000000000000000     0x5ab2
+.debug_line     0x0000000000000000     0x5bf8
  .debug_line    0x0000000000000000      0x249 ./startup/startup_mkl25z4.o
- .debug_line    0x0000000000000249      0x684 ./source/Project_5_UART.o
- .debug_line    0x00000000000008cd      0x6be ./source/circularBuffer.o
- .debug_line    0x0000000000000f8b      0x2d0 ./source/ledControl.o
- .debug_line    0x000000000000125b      0x527 ./source/loggerFunctions.o
- .debug_line    0x0000000000001782       0xd9 ./source/mtb.o
- .debug_line    0x000000000000185b       0x5a ./source/semihost_hardfault.o
- .debug_line    0x00000000000018b5      0x545 ./source/uartIncludes.o
- .debug_line    0x0000000000001dfa      0x54c ./source/unitTest.o
- .debug_line    0x0000000000002346     0x12c1 ./drivers/fsl_clock.o
- .debug_line    0x0000000000003607      0xd42 ./drivers/fsl_lpsci.o
- .debug_line    0x0000000000004349      0xd31 ./drivers/fsl_uart.o
- .debug_line    0x000000000000507a      0x383 ./board/clock_config.o
- .debug_line    0x00000000000053fd       0x5c ./board/peripherals.o
- .debug_line    0x0000000000005459      0x30a ./board/pin_mux.o
- .debug_line    0x0000000000005763      0x34f ./CMSIS/system_MKL25Z4.o
+ .debug_line    0x0000000000000249      0x433 ./source/Project_5_UART.o
+ .debug_line    0x000000000000067c      0x9df ./source/circularBuffer.o
+ .debug_line    0x000000000000105b      0x2d0 ./source/ledControl.o
+ .debug_line    0x000000000000132b      0x53f ./source/loggerFunctions.o
+ .debug_line    0x000000000000186a       0xd9 ./source/mtb.o
+ .debug_line    0x0000000000001943       0x5a ./source/semihost_hardfault.o
+ .debug_line    0x000000000000199d      0x5a3 ./source/uartIncludes.o
+ .debug_line    0x0000000000001f40      0x54c ./source/unitTest.o
+ .debug_line    0x000000000000248c     0x12c1 ./drivers/fsl_clock.o
+ .debug_line    0x000000000000374d      0xd42 ./drivers/fsl_lpsci.o
+ .debug_line    0x000000000000448f      0xd31 ./drivers/fsl_uart.o
+ .debug_line    0x00000000000051c0      0x383 ./board/clock_config.o
+ .debug_line    0x0000000000005543       0x5c ./board/peripherals.o
+ .debug_line    0x000000000000559f      0x30a ./board/pin_mux.o
+ .debug_line    0x00000000000058a9      0x34f ./CMSIS/system_MKL25Z4.o
 
-.debug_str      0x0000000000000000    0x36b69
+.debug_str      0x0000000000000000    0x36b5e
  .debug_str     0x0000000000000000     0x3158 ./startup/startup_mkl25z4.o
                                        0x31af (size before relaxing)
- .debug_str     0x0000000000003158    0x2ffd7 ./source/Project_5_UART.o
-                                      0x32f9f (size before relaxing)
- .debug_str     0x000000000003312f      0x324 ./source/circularBuffer.o
-                                      0x29699 (size before relaxing)
- .debug_str     0x0000000000033453      0x15d ./source/ledControl.o
+ .debug_str     0x0000000000003158    0x2ff46 ./source/Project_5_UART.o
+                                      0x32f0e (size before relaxing)
+ .debug_str     0x000000000003309e      0x395 ./source/circularBuffer.o
+                                      0x33288 (size before relaxing)
+ .debug_str     0x0000000000033433      0x15d ./source/ledControl.o
                                       0x28fd5 (size before relaxing)
- .debug_str     0x00000000000335b0       0xb9 ./source/loggerFunctions.o
-                                      0x31dd2 (size before relaxing)
- .debug_str     0x0000000000033669      0x532 ./source/mtb.o
+ .debug_str     0x0000000000033590       0xb9 ./source/loggerFunctions.o
+                                      0x32f64 (size before relaxing)
+ .debug_str     0x0000000000033649      0x532 ./source/mtb.o
                                        0x32ca (size before relaxing)
- .debug_str     0x0000000000033b9b       0x1f ./source/semihost_hardfault.o
+ .debug_str     0x0000000000033b7b       0x1f ./source/semihost_hardfault.o
                                        0x2db7 (size before relaxing)
- .debug_str     0x0000000000033bba       0xbc ./source/uartIncludes.o
-                                      0x3210a (size before relaxing)
- .debug_str     0x0000000000033c76       0x2d ./source/unitTest.o
-                                      0x32eb5 (size before relaxing)
- .debug_str     0x0000000000033ca3     0x157f ./drivers/fsl_clock.o
+ .debug_str     0x0000000000033b9a       0xd1 ./source/uartIncludes.o
+                                      0x332b6 (size before relaxing)
+ .debug_str     0x0000000000033c6b       0x2d ./source/unitTest.o
+                                      0x32eb6 (size before relaxing)
+ .debug_str     0x0000000000033c98     0x157f ./drivers/fsl_clock.o
                                       0x322c5 (size before relaxing)
- .debug_str     0x0000000000035222      0xaa9 ./drivers/fsl_lpsci.o
+ .debug_str     0x0000000000035217      0xaa9 ./drivers/fsl_lpsci.o
                                       0x318cd (size before relaxing)
- .debug_str     0x0000000000035ccb      0x93d ./drivers/fsl_uart.o
+ .debug_str     0x0000000000035cc0      0x93d ./drivers/fsl_uart.o
                                       0x318f0 (size before relaxing)
- .debug_str     0x0000000000036608      0x300 ./board/clock_config.o
+ .debug_str     0x00000000000365fd      0x300 ./board/clock_config.o
                                       0x311f3 (size before relaxing)
- .debug_str     0x0000000000036908       0x31 ./board/peripherals.o
+ .debug_str     0x00000000000368fd       0x31 ./board/peripherals.o
                                        0x2dc8 (size before relaxing)
- .debug_str     0x0000000000036939      0x1e1 ./board/pin_mux.o
+ .debug_str     0x000000000003692e      0x1e1 ./board/pin_mux.o
                                       0x30956 (size before relaxing)
- .debug_str     0x0000000000036b1a       0x4f ./CMSIS/system_MKL25Z4.o
+ .debug_str     0x0000000000036b0f       0x4f ./CMSIS/system_MKL25Z4.o
                                       0x2fc2f (size before relaxing)
 
 .comment        0x0000000000000000       0x75
@@ -2550,12 +2580,12 @@ OUTPUT(PES_Project_5.axf elf32-littlearm)
 
 .debug_frame    0x0000000000000000     0x1c64
  .debug_frame   0x0000000000000000      0x498 ./startup/startup_mkl25z4.o
- .debug_frame   0x0000000000000498      0x130 ./source/Project_5_UART.o
- .debug_frame   0x00000000000005c8      0x1ec ./source/circularBuffer.o
- .debug_frame   0x00000000000007b4       0x9c ./source/ledControl.o
- .debug_frame   0x0000000000000850      0x10c ./source/loggerFunctions.o
- .debug_frame   0x000000000000095c       0x20 ./source/semihost_hardfault.o
- .debug_frame   0x000000000000097c      0x158 ./source/uartIncludes.o
+ .debug_frame   0x0000000000000498       0x50 ./source/Project_5_UART.o
+ .debug_frame   0x00000000000004e8      0x28c ./source/circularBuffer.o
+ .debug_frame   0x0000000000000774       0x9c ./source/ledControl.o
+ .debug_frame   0x0000000000000810      0x10c ./source/loggerFunctions.o
+ .debug_frame   0x000000000000091c       0x20 ./source/semihost_hardfault.o
+ .debug_frame   0x000000000000093c      0x198 ./source/uartIncludes.o
  .debug_frame   0x0000000000000ad4       0x30 ./source/unitTest.o
  .debug_frame   0x0000000000000b04      0x6e0 ./drivers/fsl_clock.o
  .debug_frame   0x00000000000011e4      0x418 ./drivers/fsl_lpsci.o
@@ -2956,7 +2986,7 @@ _sbrk                                             /Applications/MCUXpressoIDE_11
 _snprintf                                         /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(printf.o)
 _sprintf                                          /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(printf.o)
                                                   ./source/loggerFunctions.o
-                                                  ./source/Project_5_UART.o
+                                                  ./source/circularBuffer.o
 _terminateio                                      /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(initio.o)
 _vStackTop                                        ./startup/startup_mkl25z4.o
 _vfprintf                                         /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(printf.o)
@@ -2965,17 +2995,17 @@ _vsnprintf                                        /Applications/MCUXpressoIDE_11
 _vsprintf                                         /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(printf.o)
 addElement                                        ./source/circularBuffer.o
                                                   ./source/unitTest.o
-                                                  ./source/Project_5_UART.o
 adjustElements                                    ./source/circularBuffer.o
-                                                  ./source/Project_5_UART.o
-application                                       ./source/Project_5_UART.o
+application                                       ./source/circularBuffer.o
                                                   ./source/unitTest.o
+                                                  ./source/Project_5_UART.o
 blueLED                                           ./source/ledControl.o
                                                   ./source/uartIncludes.o
                                                   ./source/Project_5_UART.o
 bss_init                                          ./startup/startup_mkl25z4.o
 c                                                 ./source/Project_5_UART.o
                                                   ./source/unitTest.o
+                                                  ./source/circularBuffer.o
 calloc                                            /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(alloc.o)
 ch                                                ./source/uartIncludes.o
 checkEmpty                                        ./source/circularBuffer.o
@@ -2989,7 +3019,8 @@ destroyBuffer                                     ./source/circularBuffer.o
                                                   ./source/unitTest.o
 echoPoll                                          ./source/uartIncludes.o
 emptyBuffer                                       ./source/circularBuffer.o
-endProgram                                        ./source/Project_5_UART.o
+endProgram                                        ./source/circularBuffer.o
+                                                  ./source/Project_5_UART.o
 errno                                             /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(errno.o)
                                                   /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_cr_sbrk.o)
                                                   /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(ftell.o)
@@ -3005,7 +3036,6 @@ free                                              /Applications/MCUXpressoIDE_11
                                                   /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fclose.o)
                                                   /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(printf.o)
                                                   ./source/circularBuffer.o
-                                                  ./source/Project_5_UART.o
 fseek                                             /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fseek.o)
                                                   /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_do_fflush.o)
                                                   /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_fdopen.o)
@@ -3020,21 +3050,25 @@ greenLED                                          ./source/ledControl.o
                                                   ./source/uartIncludes.o
 inBuffer                                          ./source/circularBuffer.o
 initBuffer                                        ./source/circularBuffer.o
-initRxBuf                                         ./source/Project_5_UART.o
-initTxBuf                                         ./source/Project_5_UART.o
+initRxBuf                                         ./source/circularBuffer.o
+                                                  ./source/Project_5_UART.o
+initTxBuf                                         ./source/circularBuffer.o
                                                   ./source/unitTest.o
+                                                  ./source/Project_5_UART.o
 inputReady                                        ./source/Project_5_UART.o
 kFCCOBx                                           ./drivers/fsl_flash.o
 kFPROTL                                           ./drivers/fsl_flash.o
 kPFlashDensities                                  ./drivers/fsl_flash.o
 ledOff                                            ./source/ledControl.o
                                                   ./source/uartIncludes.o
+                                                  ./source/circularBuffer.o
                                                   ./source/Project_5_UART.o
 log_data                                          ./source/loggerFunctions.o
 log_disable                                       ./source/loggerFunctions.o
 log_enable                                        ./source/loggerFunctions.o
 log_integer                                       ./source/loggerFunctions.o
 log_message                                       ./source/loggerFunctions.o
+                                                  ./source/circularBuffer.o
                                                   ./source/Project_5_UART.o
 log_message_int                                   ./source/loggerFunctions.o
 log_status                                        ./source/loggerFunctions.o
@@ -3045,7 +3079,6 @@ main                                              ./source/Project_5_UART.o
 malloc                                            /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(alloc.o)
                                                   /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(printf.o)
                                                   ./source/circularBuffer.o
-                                                  ./source/Project_5_UART.o
 mcgConfig_BOARD_BootClockRUN                      ./board/clock_config.o
 mcgConfig_BOARD_BootClockVLPR                     ./board/clock_config.o
 mcm_flash_cache_clear                             ./drivers/fsl_flash.o
@@ -3059,25 +3092,30 @@ memset                                            /Applications/MCUXpressoIDE_11
                                                   ./drivers/fsl_uart.o
                                                   ./drivers/fsl_lpsci.o
                                                   ./drivers/fsl_flash.o
-                                                  ./source/Project_5_UART.o
+                                                  ./source/circularBuffer.o
 oscConfig_BOARD_BootClockRUN                      ./board/clock_config.o
 oscConfig_BOARD_BootClockVLPR                     ./board/clock_config.o
-printReport                                       ./source/Project_5_UART.o
+printReport                                       ./source/circularBuffer.o
 realloc                                           /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(alloc.o)
-                                                  ./source/Project_5_UART.o
+                                                  ./source/circularBuffer.o
 receivePoll                                       ./source/uartIncludes.o
 receiveReady                                      ./source/uartIncludes.o
                                                   ./source/Project_5_UART.o
 redLED                                            ./source/ledControl.o
-                                                  ./source/Project_5_UART.o
+                                                  ./source/circularBuffer.o
 remove                                            /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(remove.o)
                                                   /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fclose.o)
 rename                                            /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(remove.o)
 reportPrint                                       ./source/Project_5_UART.o
+                                                  ./source/circularBuffer.o
 rxBuf                                             ./source/Project_5_UART.o
-sendChara                                         ./source/Project_5_UART.o
+                                                  ./source/circularBuffer.o
+sendChara                                         ./source/uartIncludes.o
                                                   ./source/loggerFunctions.o
-sendString                                        ./source/Project_5_UART.o
+                                                  ./source/circularBuffer.o
+                                                  ./source/Project_5_UART.o
+sendString                                        ./source/uartIncludes.o
+                                                  ./source/circularBuffer.o
 setvbuf                                           /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(setvbuf.o)
                                                   /Applications/MCUXpressoIDE_11.0.1_2563/ide/plugins/com.nxp.mcuxpresso.tools.macosx_11.0.1.201907311258/tools/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(initio.o)
 simConfig_BOARD_BootClockRUN                      ./board/clock_config.o
@@ -3089,20 +3127,21 @@ temp                                              ./source/uartIncludes.o
 tenth                                             ./source/circularBuffer.o
                                                   ./source/loggerFunctions.o
 transmitPoll                                      ./source/uartIncludes.o
-                                                  ./source/Project_5_UART.o
 transmitReady                                     ./source/uartIncludes.o
                                                   ./source/loggerFunctions.o
                                                   ./source/Project_5_UART.o
 transmitTemp                                      ./source/uartIncludes.o
 txBuf                                             ./source/Project_5_UART.o
                                                   ./source/unitTest.o
+                                                  ./source/circularBuffer.o
 txBufferReady                                     ./source/Project_5_UART.o
+                                                  ./source/circularBuffer.o
 uartInit                                          ./source/uartIncludes.o
                                                   ./source/Project_5_UART.o
 ucunit_action                                     ./source/unitTest.o
 ucunit_checklist_failed_checks                    ./source/unitTest.o
 ucunit_checkpoints                                ./source/unitTest.o
-                                                  ./source/Project_5_UART.o
+                                                  ./source/circularBuffer.o
 ucunit_checks_failed                              ./source/unitTest.o
 ucunit_checks_passed                              ./source/unitTest.o
 ucunit_index                                      ./source/unitTest.o
