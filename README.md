@@ -75,7 +75,7 @@ The program works in application or echo mode and in each of these modes it is f
 **Reallocation**  
 The buffer starts of with an initial size of of 8 bytes. Every time it reaches the size limit, it realloactes the buffer to twice its original size. If the reallocation fails, the current buffer summary is printed and the buffer reinitialises to 16 bytes.  
 
-**References**
+**References**  
 The UART example from Alexander Dean's github repository was referred, mostly to figure out the flags for polling and interrupt based UART. 
 
 
