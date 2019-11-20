@@ -101,5 +101,5 @@ uint8_t receivePoll();
 void echoPoll();
 
 #define interruptEnable 1
-#define applicationMode 1
+#define applicationMode 0
 #endif /* UARTINCLUDES_H_ */

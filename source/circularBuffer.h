@@ -192,4 +192,6 @@ void application(void);
 
 void Init_SysTick(void);
 
+void endProgram(void);
+
 #endif

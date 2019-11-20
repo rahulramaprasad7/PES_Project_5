@@ -80,6 +80,18 @@ enum bufErrorCode initRxBuf(uint32_t inLength)
 	return success;
 }
 
+void endProgram(void)
+{
+	ledOff();
+	redLED();
+
+	log_message(NORMAL, __func__, "Critical error detected, terminating program");
+	log_message(DEBUG, __func__, "Critical error detected, terminating program");
+	log_message(TEST, __func__, "Critical error detected, terminating program");
+
+	while(1);
+}
+
 int main(void)
 {
 	//	uint8_t c;
@@ -101,8 +113,14 @@ int main(void)
 	//	BOARD_InitDebugConsole();
 
 #ifndef test
-	initTxBuf(8);
-	initRxBuf(256);
+	if(initTxBuf(8) == failure){
+		log_message(NORMAL, __func__, "TX buffer initial allocation failed, terminating program");
+		log_message(DEBUG, __func__, "TX buffer initial allocation failed, terminating program");
+	}
+	if(initRxBuf(256) == failure){
+		log_message(NORMAL, __func__, "RX buffer initial allocation failed, terminating program");
+		log_message(DEBUG, __func__, "RX buffer initial allocation failed, terminating program");
+	}
 #endif
 
 #ifdef test
@@ -116,12 +134,12 @@ int main(void)
 	//	}
 	//	printf("DONE\n");
 
-	for(int i = 0; i < txBuf->length; i++){
-		printf("Buffer: %d\n", txBuf->charArray[i]);
-		char tempHolder[15];
-		sprintf(tempHolder, "Buffer: %c\n", txBuf->charArray[i]);
-		sendString(tempHolder);
-	}
+//	for(int i = 0; i < txBuf->length; i++){
+//		printf("Buffer: %d\n", txBuf->charArray[i]);
+//		char tempHolder[15];
+//		sprintf(tempHolder, "Buffer: %c\n", txBuf->charArray[i]);
+//		sendString(tempHolder);
+//	}
 
 	zeroFullBuffer(txBuf);
 #if interruptEnable == 1
