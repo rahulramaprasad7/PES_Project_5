@@ -73,7 +73,10 @@ The interrupt kept getting fired in the interrupt mode. To solve this issue, the
 The program works in application or echo mode and in each of these modes it is further split into interrupt or polling mode. The print summary function runs only in the application mode. The "." character is used to trigger the print sumary function, so every time the user types the "." character, the buffer contents along with the frequency of each character in the buffer is printed.  
 
 **Reallocation**  
-The buffer starts of with an initial size of of 8 bytes. Every time it reaches the size limit, it realloactes the buffer to twice its original size. If the reallocation fails, the current buffer summary is printed and the buffer reinitialises to 16 bytes.
+The buffer starts of with an initial size of of 8 bytes. Every time it reaches the size limit, it realloactes the buffer to twice its original size. If the reallocation fails, the current buffer summary is printed and the buffer reinitialises to 16 bytes.  
+
+**References**
+The UART example from Alexander Dean's github repository was referred, mostly to figure out the flags for polling and interrupt based UART. 
 
 
 
